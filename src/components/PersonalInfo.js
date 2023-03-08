@@ -8,7 +8,7 @@ class PersonalInfo extends Component {
                 <p
                     id="personalInformation" 
                     className="title">
-                        Personal Information:
+                    Personal Information:
                 </p>
                 <label htmlFor="firstName">
                     <input 

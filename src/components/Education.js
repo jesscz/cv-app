@@ -8,7 +8,7 @@ class Education extends Component {
                 <p 
                     id="education" 
                     className="title">
-                        Education:
+                    Education:
                 </p>
                 <label htmlFor="position">
                     <input 

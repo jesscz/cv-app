@@ -8,7 +8,7 @@ class Experience extends Component {
                 <p 
                     id="experience" 
                     className="title">
-                        Experience:
+                    Experience:
                 </p>
                 <label htmlFor="position">
                     <input 
