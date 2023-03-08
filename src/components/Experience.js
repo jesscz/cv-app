@@ -13,22 +13,22 @@ class Experience extends Component {
                 <label htmlFor="position">
                     <input 
                         type="text" 
-                        // name="" 
+                        placeholder="Postition" 
                         className="positionInput" 
                     />
                 </label>
                 <label htmlFor="company">
                     <input 
                         type="text" 
-                        // name="" 
+                        placeholder="Company" 
                         className="companyInput" 
                     />
                 </label>
                 <label htmlFor="city">
                     <input 
                         type="text" 
-                        // name=""                             
-                        className="cityInput" 
+                        placeholder="City"                         
+                        className="expCityInput" 
                     />
                 </label>
                 <label htmlFor="expStart">

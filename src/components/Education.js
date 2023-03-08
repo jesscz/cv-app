@@ -10,39 +10,46 @@ class Education extends Component {
                     className="title">
                     Education:
                 </p>
-                <label htmlFor="position">
+                <label htmlFor="university">
                     <input 
                         type="text" 
-                        // name="" 
-                        className="positionInput" 
-                    />
-                </label>
-                <label htmlFor="company">
-                    <input 
-                        type="text" 
-                        // name="" 
-                        className="companyInput" 
+                        placeholder="University name" 
+                        className="universityInput" 
                     />
                 </label>
                 <label htmlFor="city">
                     <input 
                         type="text" 
-                        // name="" 
-                        className="cityInput" 
+                        placeholder="City"
+                        className="eduCityInput" 
                     />
                 </label>
-                <label htmlFor="expStart">
+                <label htmlFor="degree">
+                    <input 
+                        type="text" 
+                        placeholder="Degree"
+                        className="degreeInput" 
+                    />
+                </label>
+                <label htmlFor="Subject">
+                    <input 
+                        type="text" 
+                        placeholder="Subject"
+                        className="subjectInput" 
+                    />
+                </label>
+                <label htmlFor="eduStart">
                     <input 
                         type="date" 
                         // name="" 
-                        className="expStartInput" 
+                        className="eduStartInput" 
                     />
                 </label>
-                <label htmlFor="expEnd"> {/* change to option to choose present */}
+                <label htmlFor="eduEnd"> {/* change to option to choose present */}
                     <input 
                         type="date" 
                         // name="" 
-                        className="expEndInput"
+                        className="eduEndInput"
                     />
                 </label>
             </form>    

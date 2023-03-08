@@ -13,56 +13,56 @@ class PersonalInfo extends Component {
                 <label htmlFor="firstName">
                     <input 
                         type="text" 
-                        // name="" 
+                        placeholder="First name"
                         id="firstNameInput" 
                     />
                 </label>
                 <label htmlFor="lastName">
                     <input 
                         type="text" 
-                        // name="" 
+                        placeholder="Last name"
                         id="lastNameInput" 
                     />
                 </label>
                 <label htmlFor="title">
                     <input 
                         type="text" 
-                        // name="" 
+                        placeholder="Title" 
                         id="titleInput" 
                     />
                 </label>
                 <label htmlFor="photoId">{/* change to button that imports image */}
                     <input 
                         type="text" 
-                        // name="" 
+                        placeholder="Photo"
                         id="photoIdInput" 
                     />
                 </label>
                 <label htmlFor="address">
                     <input 
                         type="text" 
-                        // name="" 
+                        placeholder="Address"
                         id="addressInput" 
                     />
                 </label>
                 <label htmlFor="phoneNumber">
                     <input 
                         type="text" 
-                        // name="" 
+                        placeholder="Phone number"
                         id="phoneNumberInput" 
                     />
                 </label>
                 <label htmlFor="email">
                     <input 
                         type="text" 
-                        // name="" 
+                        placeholder="Email"
                         id="emailInput" 
                     />
                 </label>
                 <label htmlFor="description">
                     <input 
                         type="text" 
-                        // name="" 
+                        placeholder="Description"
                         id="descriptionInput" 
                     />
                 </label>
