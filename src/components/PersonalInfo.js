@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 
 
 class PersonalInfo extends Component {
+    // handleChange = (e) => {
+    //     // for (label in form) {
+
+    //     // }
+
+    // // if (e.target.id == )
+    //     console.log(e.target.id)
+    // console.log(e.target.value)
+    // // this.
+    // };
+
     render() {
         return (
             <form>
@@ -12,58 +23,51 @@ class PersonalInfo extends Component {
                 </p>
                 <label htmlFor="firstName">
                     <input 
+                        onChange= {this.props.onChange}
                         type="text" 
                         placeholder="First name"
-                        id="firstNameInput" 
+                        id="firstName" 
+
                     />
                 </label>
                 <label htmlFor="lastName">
                     <input 
+                        onChange= {this.props.onChange}
                         type="text" 
                         placeholder="Last name"
-                        id="lastNameInput" 
-                    />
-                </label>
-                <label htmlFor="title">
-                    <input 
-                        type="text" 
-                        placeholder="Title" 
-                        id="titleInput" 
+                        id="lastName" 
                     />
                 </label>
                 <label htmlFor="photoId">{/* change to button that imports image */}
                     <input 
+                        onChange= {this.props.onChange}
                         type="text" 
                         placeholder="Photo"
-                        id="photoIdInput" 
+                        id="photoId" 
                     />
                 </label>
                 <label htmlFor="address">
                     <input 
+                        onChange= {this.props.onChange}
                         type="text" 
                         placeholder="Address"
-                        id="addressInput" 
+                        id="address" 
                     />
                 </label>
                 <label htmlFor="phoneNumber">
                     <input 
+                        onChange= {this.props.onChange}
                         type="text" 
                         placeholder="Phone number"
-                        id="phoneNumberInput" 
+                        id="phoneNumber" 
                     />
                 </label>
                 <label htmlFor="email">
                     <input 
+                        onChange= {this.props.onChange}
                         type="text" 
                         placeholder="Email"
-                        id="emailInput" 
-                    />
-                </label>
-                <label htmlFor="description">
-                    <input 
-                        type="text" 
-                        placeholder="Description"
-                        id="descriptionInput" 
+                        id="email" 
                     />
                 </label>
             </form>

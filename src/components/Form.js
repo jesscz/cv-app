@@ -4,12 +4,16 @@ import Experience from './Experience';
 import Education from './Education';
 
 class Form extends Component {
+
     render() {
         return (
             <div className='form'>
-                < PersonalInfo />
-                <Experience />
-                <Education />
+                <PersonalInfo 
+                    onChange={this.props.onChange}/>
+                <Experience 
+                    onChange={this.props.onChange}/>
+                <Education 
+                    onChange={this.props.onChange}/>
             </div>
         );
     }
