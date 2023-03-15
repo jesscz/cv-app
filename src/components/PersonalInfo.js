@@ -17,7 +17,7 @@ class PersonalInfo extends Component {
         return (
             <form>
                 <p
-                    id="personalInformation" 
+                    id="personalInfo" 
                     className="title">
                     Personal Information:
                 </p>

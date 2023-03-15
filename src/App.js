@@ -43,24 +43,24 @@ class App extends Component {
 
     // } 
     //-----
-
-    // if (e.target.id == )
-    //-----
+    console.log(e.target.parentNode.parentNode.firstChild.id);
+    console.log(e.target.placeholder);
+    console.log(e.target.value);
     
-    console.log(e.target.id);
-    console.log(e.target.className);
-    console.log(e.target.value)
-    this.setState( 
-      this.state,
-    );
 
-    Object.entries(this.state).map((key) => {
-      
-      return console.log(key);
+
+    this.setState(state => {
+      const x = e.target.parentNode.parentNode.firstChild.id;
+      if (e.target.id === ''){
+        state[x][e.target.className] = e.target.value;
+      }
+      else{
+        state[x][e.target.id] = e.target.value;
+      }
+      return state;
     })
-    //----
+    
   };
-  // const HANDLECHANGE = this.handleChange.bind(this);
   
   render() {
     // const { data } = this.state;
