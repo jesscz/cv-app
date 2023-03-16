@@ -7,15 +7,19 @@ class Preview extends Component {
     render() {
         return (
             <div className='preview'>
-                <div>
-                    <h1>{this.props.data.personalInfo.firstName}, {this.props.data.personalInfo.lastName}</h1>
-                    <p>{this.props.data.personalInfo.photoId}</p>
-                    <p>{this.props.data.personalInfo.email}</p>
-                    <p>{this.props.data.personalInfo.phoneNumber}</p>
-                    <p>{this.props.data.personalInfo.address}</p>
+                <div className='previewPersonalInfo'>
+                    <h1>{this.props.data.personalInfo.firstName} {this.props.data.personalInfo.lastName}</h1>
+                    <p id='photoId'>{this.props.data.personalInfo.photoId}</p>
+                    <p id='personalInfoL2'>
+                        {this.props.data.personalInfo.email}{' | '}
+                        {this.props.data.personalInfo.phoneNumber}{' | '}
+                        {this.props.data.personalInfo.address}
+                    </p>
                 </div>
                 <div>
-                    <p>Experience:</p>
+                    <p
+                        className="previewSectionTitle"    
+                    >Experience</p>
                     <p>{this.props.data.experience.position}</p>
                     <p>{this.props.data.experience.company}</p>
                     <p>{this.props.data.experience.expCity}</p>
@@ -24,7 +28,9 @@ class Preview extends Component {
                     <p>{this.props.data.experience.description}</p>
                 </div>
                 <div>
-                    <p>Education:</p>
+                    <p
+                        className="previewSectionTitle" 
+                    >Education</p>
                     <p>{this.props.data.education.subject}</p>
                     <p>{this.props.data.education.university}</p>
                     <p>{this.props.data.education.eduCity}</p>

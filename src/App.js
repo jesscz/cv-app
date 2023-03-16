@@ -19,8 +19,8 @@ class App extends Component {
         address: '',
       },
       experience : {
-        position: '',
         company: '',
+        position: '',
         expCity: '',
         expStart: '',
         expCurrent: '',
@@ -28,12 +28,12 @@ class App extends Component {
         description: '',
       },
       education : {
-        subject: '',
         university: '',
         eduCity: '',
-        degree: '',
         eduStart: '',
         eduEnd: '',
+        degree: '',
+        subject: '',
       } 
     };
   }

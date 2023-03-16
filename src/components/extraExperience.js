@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 
 
-class Experience extends Component {
+class ExtraExperience extends Component {
     render() {
         return (
             <div>
                 <form>
-                    <p 
-                        id="experience" 
-                        className="sectionTitle">
-                        Experience:
-                    </p>
                     <label htmlFor="company">
                         <input 
                             onChange= {this.props.onChange}
@@ -73,4 +68,4 @@ class Experience extends Component {
 
 }
 
-export default Experience;
+export default ExtraExperience;

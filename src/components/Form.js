@@ -11,11 +11,27 @@ class Form extends Component {
         return (
             <div className='form'>
                 <PersonalInfo 
-                    onChange={this.props.onChange}/>
-                <Experience 
-                    onChange={this.props.onChange}/>
-                <Education 
-                    onChange={this.props.onChange}/>
+                    onChange={this.props.onChange}
+                />
+                <div>
+                    <Experience 
+                        onChange={this.props.onChange}
+                    />
+                    <button>
+                        Add Experience
+                    </button>
+                </div>
+                <div>
+                    <Education 
+                        onChange={this.props.onChange}
+                    />
+                    <button>
+                        Add Education
+                    </button> 
+                </div>
+                <button>
+                    Submit to printer
+                </button>
             </div>
         );
     }

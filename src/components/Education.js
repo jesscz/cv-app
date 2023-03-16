@@ -8,17 +8,9 @@ class Education extends Component {
                 <form>
                     <p 
                         id="education" 
-                        className="title">
+                        className="sectionTitle">
                         Education:
                     </p>
-                    <label htmlFor="Subject">
-                        <input 
-                            onChange= {this.props.onChange}
-                            type="text" 
-                            placeholder="Subject"
-                            className="subject" 
-                        />
-                    </label>
                     <label htmlFor="university">
                         <input 
                             onChange= {this.props.onChange}
@@ -26,21 +18,12 @@ class Education extends Component {
                             placeholder="University name" 
                             className="university" 
                         />
-                    </label>
-                    <label htmlFor="city">
+                    </label><label htmlFor="city">
                         <input 
                             onChange= {this.props.onChange}
                             type="text" 
                             placeholder="City"
                             className="eduCity" 
-                        />
-                    </label>
-                    <label htmlFor="degree">
-                        <input 
-                            onChange= {this.props.onChange}
-                            type="text" 
-                            placeholder="Degree"
-                            className="degree" 
                         />
                     </label>
                     <label htmlFor="eduStart">
@@ -58,10 +41,23 @@ class Education extends Component {
                             className="eduEnd"
                         />
                     </label>
-                </form>  
-                <button>
-                    Add Education
-                </button>  
+                    <label htmlFor="degree">
+                        <input 
+                            onChange= {this.props.onChange}
+                            type="text" 
+                            placeholder="Degree"
+                            className="degree" 
+                        />
+                    </label>
+                    <label htmlFor="subject">
+                        <input 
+                            onChange= {this.props.onChange}
+                            type="text" 
+                            placeholder="Subject"
+                            className="subject" 
+                        />
+                    </label>
+                </form>
             </div>
         );
     }
