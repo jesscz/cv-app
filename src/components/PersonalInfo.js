@@ -2,17 +2,6 @@ import React, { Component } from 'react';
 
 
 class PersonalInfo extends Component {
-    // handleChange = (e) => {
-    //     // for (label in form) {
-
-    //     // }
-
-    // // if (e.target.id == )
-    //     console.log(e.target.id)
-    // console.log(e.target.value)
-    // // this.
-    // };
-
     render() {
         return (
             <form>
@@ -27,7 +16,6 @@ class PersonalInfo extends Component {
                         type="text" 
                         placeholder="First name"
                         id="firstName" 
-
                     />
                 </label>
                 <label htmlFor="lastName">
@@ -46,12 +34,12 @@ class PersonalInfo extends Component {
                         id="photoId" 
                     />
                 </label>
-                <label htmlFor="address">
+                <label htmlFor="email">
                     <input 
                         onChange= {this.props.onChange}
                         type="text" 
-                        placeholder="Address"
-                        id="address" 
+                        placeholder="Email"
+                        id="email" 
                     />
                 </label>
                 <label htmlFor="phoneNumber">
@@ -62,18 +50,17 @@ class PersonalInfo extends Component {
                         id="phoneNumber" 
                     />
                 </label>
-                <label htmlFor="email">
+                <label htmlFor="address">
                     <input 
                         onChange= {this.props.onChange}
                         type="text" 
-                        placeholder="Email"
-                        id="email" 
+                        placeholder="Address"
+                        id="address" 
                     />
                 </label>
             </form>
         );
     }
-
 }
 
 export default PersonalInfo;

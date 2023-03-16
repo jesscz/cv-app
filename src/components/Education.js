@@ -47,7 +47,6 @@ class Education extends Component {
                         <input 
                             onChange= {this.props.onChange}
                             type="date" 
-                            // name="" 
                             className="eduStart" 
                         />
                     </label>

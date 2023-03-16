@@ -7,16 +7,16 @@ class App extends Component {
   constructor() {
     super();
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleFormChange = this.handleFormChange.bind(this);
 
     this.state = {
       personalInfo : {
         firstName: '',
         lastName: '',
         photoId: '',
-        address: '',
-        phoneNumber: '',
         email: '',
+        phoneNumber: '',
+        address: '',
       },
       experience : {
         position: '',
@@ -38,17 +38,7 @@ class App extends Component {
     };
   }
   
-  handleChange = (e) => {
-    // for (label in form) {
-
-    // } 
-    //-----
-    console.log(e.target.parentNode.parentNode.firstChild.id);
-    console.log(e.target.placeholder);
-    console.log(e.target.value);
-    
-
-
+  handleFormChange = (e) => {
     this.setState(state => {
       const x = e.target.parentNode.parentNode.firstChild.id;
       if (e.target.id === ''){
@@ -59,11 +49,9 @@ class App extends Component {
       }
       return state;
     })
-    
   };
   
   render() {
-    // const { data } = this.state;
     return (
       <div className='main'>
         <header>
@@ -71,10 +59,12 @@ class App extends Component {
         </header>
 
         <Form 
-          onChange = {this.handleChange}
+          onChange = {this.handleFormChange}
         />
 
-        <Preview/>
+        <Preview
+          data = {this.state}
+        />
 
         <footer>
           <a href='https://github.com/jesscz'>

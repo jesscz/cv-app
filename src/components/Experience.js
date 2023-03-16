@@ -47,6 +47,7 @@ class Experience extends Component {
                     <label htmlFor="expEnd"> {/* change to option to choose present */}
                         Current: 
                         <input
+                            onChange= {this.props.onChange}
                             type="checkbox"
                             className="expCurrent"
                         />
