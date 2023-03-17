@@ -12,6 +12,7 @@ class Form extends Component {
             <div className='form'>
                 <PersonalInfo 
                     onChange={this.props.onChange}
+                    onPhotoChange = {this.props.onPhotoChange}
                 />
                 <div>
                     <Experience 

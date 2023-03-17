@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+// import DisplayImage from './DisplayImage';
 
 class PersonalInfo extends Component {
     render() {
@@ -26,11 +26,11 @@ class PersonalInfo extends Component {
                         id="lastName" 
                     />
                 </label>
-                <label htmlFor="photoId">{/* change to button that imports image */}
+                <label htmlFor="photoId">Select photo ID image: 
                     <input 
-                        onChange= {this.props.onChange}
-                        type="text" 
-                        placeholder="Photo"
+                        onChange= {this.props.onPhotoChange}
+                        type="file" 
+                        // placeholder="Photo"
                         id="photoId" 
                     />
                 </label>

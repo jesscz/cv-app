@@ -8,12 +8,13 @@ class App extends Component {
     super();
 
     this.handleFormChange = this.handleFormChange.bind(this);
+    this.handlePhotoChange = this.handlePhotoChange.bind(this);
 
     this.state = {
       personalInfo : {
         firstName: '',
         lastName: '',
-        photoId: '',
+        photoId: null,
         email: '',
         phoneNumber: '',
         address: '',
@@ -51,6 +52,16 @@ class App extends Component {
     })
   };
   
+  handlePhotoChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      let img = e.target.files[0];
+      this.setState(state => {
+        state.personalInfo.photoId = URL.createObjectURL(img)
+        return state;
+      })
+    }
+  }
+
   render() {
     return (
       <div className='main'>
@@ -60,6 +71,7 @@ class App extends Component {
 
         <Form 
           onChange = {this.handleFormChange}
+          onPhotoChange = {this.handlePhotoChange}
         />
 
         <Preview
