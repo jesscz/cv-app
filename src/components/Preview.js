@@ -20,27 +20,27 @@ class Preview extends Component {
                     <p className="previewSectionTitle">   
                         Experience
                     </p>
-                    <p className='previewGroup'>
+                    <div className='previewGroup'>
                         <p className='previewCompany'>{this.props.data.experience.company}</p>
                         <span>{this.props.data.experience.position}{' '}</span>
                         <span className='expCity'>{this.props.data.experience.expCity}{' '}</span>
                         <span>{'('}{this.props.data.experience.expStart}{' to '}</span>
                         <span>{this.props.data.experience.expEnd}{')'}</span>
                         <p>{this.props.data.experience.description}</p>
-                    </p>
+                    </div>
                 </div>
                 <div>
                     <p className="previewSectionTitle">
                         Education
                     </p>
-                    <p>
+                    <div>
                         <p>{this.props.data.education.university}</p>
                         <p>{this.props.data.education.eduCity}</p>
                         <p>{this.props.data.education.eduStart}</p>
                         <p>{this.props.data.education.eduEnd}</p>
                         <p>{this.props.data.education.degree}</p>
                         <p>{this.props.data.education.subject}</p>
-                    </p>
+                    </div>
                 </div>
             </div>
         );

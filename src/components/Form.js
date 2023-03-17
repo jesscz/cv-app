@@ -3,11 +3,18 @@ import '../css/Form.css';
 import PersonalInfo from './PersonalInfo';
 import Experience from './Experience';
 import Education from './Education';
+import ExtraExperience from './extraExperience';
 
 
 class Form extends Component {
 
     render() {
+        const children = [];
+
+        for (let i = 0; i < this.props.data.other.numChildren; i += 1) {
+           children.push(< ExtraExperience key={i} number={i}/>)
+        }
+
         return (
             <div className='form'>
                 <PersonalInfo 
@@ -18,9 +25,13 @@ class Form extends Component {
                     <Experience 
                         onChange={this.props.onChange}
                     />
-                    <button>
+                    <button
+                        onClick={this.props.onAddExp}>
                         Add Experience
                     </button>
+                    <div>
+                        {children}
+                    </div>
                 </div>
                 <div>
                     <Education 

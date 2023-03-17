@@ -11,6 +11,9 @@ class App extends Component {
     this.handlePhotoChange = this.handlePhotoChange.bind(this);
 
     this.state = {
+      other : {
+        numChildren: 0,
+      },
       personalInfo : {
         firstName: '',
         lastName: '',
@@ -39,7 +42,7 @@ class App extends Component {
     };
   }
   
-  handleFormChange = (e) => {
+  handleFormChange = (e) => { //function for changing state when form input changes
     this.setState(state => {
       const x = e.target.parentNode.parentNode.firstChild.id;
       if (e.target.id === ''){
@@ -52,7 +55,7 @@ class App extends Component {
     })
   };
   
-  handlePhotoChange = (e) => {
+  handlePhotoChange = (e) => { //function for changing photo (in state where its stored)
     if (e.target.files && e.target.files[0]) {
       let img = e.target.files[0];
       this.setState(state => {
@@ -60,6 +63,14 @@ class App extends Component {
         return state;
       })
     }
+  }
+
+  handleAddExpBtnClick = (e) => {
+    this.setState(state => {
+      state.other.numChildren = state.other.numChildren + 0.5;
+      return state;
+    })
+
   }
 
   render() {
@@ -72,6 +83,8 @@ class App extends Component {
         <Form 
           onChange = {this.handleFormChange}
           onPhotoChange = {this.handlePhotoChange}
+          onAddExp = {this.handleAddExpBtnClick}
+          data = {this.state}
         />
 
         <Preview
