@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-class ExtraExperience extends Component {
+class ExtraExperienceInput extends Component {
     render() {
         // const id = {this.props.key}
         return (
@@ -69,4 +69,4 @@ class ExtraExperience extends Component {
     }
 }
 
-export default ExtraExperience;
+export default ExtraExperienceInput;

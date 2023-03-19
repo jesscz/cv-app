@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ExtraExperience from './extraExperience';
+import ExtraExperienceInput from './extraExperienceInput';
 
 
 class Experience extends Component {
@@ -9,7 +9,7 @@ class Experience extends Component {
 
         for (let i = 1; i <= this.props.data.other.numChildrenExp; i += 1) {
            children.push(< 
-            ExtraExperience 
+            ExtraExperienceInput 
                 key={i} 
                 number={i}
                 id={'exp'+i}
@@ -89,6 +89,10 @@ class Experience extends Component {
                 <div id='expExtras'>
                     {children}
                 </div>
+                <button>
+                    {/* onClick={this.props.}> */}
+                    Delete
+                </button>
             </div>
         );
     }

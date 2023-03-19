@@ -3,8 +3,14 @@ import '../css/Preview.css';
 
 
 class Preview extends Component {
-
     render() {
+
+        const expChildren = [];
+        for (let i = 1; i <= this.props.data.other.numChildrenExp; i += 1) {
+            let x = 'exp' + i;
+            expChildren.push()
+        }
+
         return (
             <div className='preview'>
                 <div className='previewPersonalInfo'>
@@ -28,6 +34,7 @@ class Preview extends Component {
                         <span>{this.props.data.experience.expEnd}{')'}</span>
                         <p>{this.props.data.experience.description}</p>
                     </div>
+                    {expChildren}
                 </div>
                 <div>
                     <p className="previewSectionTitle">
