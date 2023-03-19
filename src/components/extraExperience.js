@@ -3,9 +3,13 @@ import React, { Component } from 'react';
 
 class ExtraExperience extends Component {
     render() {
+        // const id = {this.props.key}
         return (
             <div>
                 <form>
+                    <p
+                        id={this.props.id}>
+                    </p>
                     <label htmlFor="company">
                         <input 
                             onChange= {this.props.onChange}

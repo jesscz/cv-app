@@ -1,8 +1,23 @@
 import React, { Component } from 'react';
+import ExtraExperience from './extraExperience';
 
 
 class Experience extends Component {
     render() {
+
+        const children = [];
+
+        for (let i = 1; i <= this.props.data.other.numChildrenExp; i += 1) {
+           children.push(< 
+            ExtraExperience 
+                key={i} 
+                number={i}
+                id={'exp'+i}
+                onChange={this.props.onChange}
+                data={this.props.data}
+            />)
+        }
+
         return (
             <div>
                 <form>
@@ -11,6 +26,10 @@ class Experience extends Component {
                         className="sectionTitle">
                         Experience:
                     </p>
+                    <button
+                        onClick={this.props.onAddExp}>
+                        Add Experience
+                    </button>
                     <label htmlFor="company">
                         <input 
                             onChange= {this.props.onChange}
@@ -67,6 +86,9 @@ class Experience extends Component {
                         />
                     </label>
                 </form>
+                <div id='expExtras'>
+                    {children}
+                </div>
             </div>
         );
     }
