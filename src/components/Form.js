@@ -14,13 +14,11 @@ class Form extends Component {
                     onChange={this.props.onChange}
                     onPhotoChange = {this.props.onPhotoChange}
                 />
-                <div>
-                    <Experience 
-                        onChange={this.props.onChange}
-                        onAddExp={this.props.onAddExp}
-                        data={this.props.data}
-                    />
-                </div>
+                <Experience 
+                    onChange={this.props.onChange}
+                    onAddExp={this.props.onAddExp}
+                    data={this.props.data}
+                />
                 <div>
                     <Education 
                         onChange={this.props.onChange}
