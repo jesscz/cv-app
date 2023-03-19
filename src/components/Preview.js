@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../css/Preview.css';
+import ExtraExperiencePreview from './extraExperiencePreview';
 
 
 class Preview extends Component {
@@ -7,8 +8,10 @@ class Preview extends Component {
 
         const expChildren = [];
         for (let i = 1; i <= this.props.data.other.numChildrenExp; i += 1) {
-            let x = 'exp' + i;
-            expChildren.push()
+            expChildren.push(<ExtraExperiencePreview
+                i={i}
+                data={this.props.data}
+            />)
         }
 
         return (
