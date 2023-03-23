@@ -93,18 +93,17 @@ class App extends Component {
     e.preventDefault();
     this.setState(state => { //sets number of extra exp there should be 
       state.other.numChildrenEdu = state.other.numChildrenEdu + 0.5; //it adds twice every button press (idk why), so i improvised with 0.5 to add 1 on each button press 
-      // if (state.other.numChildrenExp % 1 === 0) {
-      //   let x = 'exp' + state.other.numChildrenExp; 
-      //   state[x] = {
-      //     company: '',
-      //     position: '',
-      //     expCity: '',
-      //     expStart: '',
-      //     expCurrent: '',
-      //     expEnd: '',
-      //     description: '', 
-      //   }
-      // }
+      if (state.other.numChildrenEdu % 1 === 0) {
+        let x = 'edu' + state.other.numChildrenEdu; 
+        state[x] = {
+          university: '',
+          eduCity: '',
+          eduStart: '',
+          eduEnd: '',
+          degree: '',
+          subject: '',
+        }
+      }
       return state;
     })
   }
