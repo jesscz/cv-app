@@ -1,8 +1,22 @@
 import React, { Component } from 'react';
+import ExtraEducationInput from './extraEducationInput';
 
 
 class Education extends Component {
     render() {
+
+        const children = [];
+
+        for (let i = 1; i <= this.props.data.other.numChildrenEdu; i += 1) {
+            children.push(<
+             ExtraEducationInput   
+                number={i}
+                id={'edu'+i}
+                onChange={this.props.onChange}
+                data={this.props.data}
+             />)
+        }
+
         return (
             <div>
                 <form>
@@ -62,6 +76,13 @@ class Education extends Component {
                         />
                     </label>
                 </form>
+                <div id='eduExtras'>
+                    {children}
+                </div>
+                <button>
+                    {/* onClick={this.props.}> */}
+                    Delete
+                </button>
             </div>
         );
     }

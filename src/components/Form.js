@@ -22,6 +22,7 @@ class Form extends Component {
                 <Education 
                     onChange={this.props.onChange}
                     onAddEdu={this.props.onAddEdu}
+                    data={this.props.data}
                 />
                 <button>
                     Submit to printer
