@@ -11,6 +11,10 @@ class Education extends Component {
                         className="sectionTitle">
                         Education:
                     </p>
+                    <button
+                        onClick={this.props.onAddEdu}>
+                        Add Education
+                    </button> 
                     <label htmlFor="university">
                         <input 
                             onChange= {this.props.onChange}

@@ -13,6 +13,7 @@ class App extends Component {
     this.state = {
       other : {
         numChildrenExp: 0,
+        numChildrenEdu: 0,
       },
       personalInfo : {
         firstName: '',
@@ -86,7 +87,26 @@ class App extends Component {
       }
       return state;
     })
-    console.log(document.getElementById('expExtras').childElementCount)
+  }
+
+  handleAddEduBtnClick = (e) => {
+    e.preventDefault();
+    this.setState(state => { //sets number of extra exp there should be 
+      state.other.numChildrenEdu = state.other.numChildrenEdu + 0.5; //it adds twice every button press (idk why), so i improvised with 0.5 to add 1 on each button press 
+      // if (state.other.numChildrenExp % 1 === 0) {
+      //   let x = 'exp' + state.other.numChildrenExp; 
+      //   state[x] = {
+      //     company: '',
+      //     position: '',
+      //     expCity: '',
+      //     expStart: '',
+      //     expCurrent: '',
+      //     expEnd: '',
+      //     description: '', 
+      //   }
+      // }
+      return state;
+    })
   }
 
   render() {
@@ -100,6 +120,7 @@ class App extends Component {
           onChange = {this.handleFormChange}
           onPhotoChange = {this.handlePhotoChange}
           onAddExp = {this.handleAddExpBtnClick}
+          onAddEdu = {this.handleAddEduBtnClick}
           data = {this.state}
         />
 

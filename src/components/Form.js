@@ -19,14 +19,10 @@ class Form extends Component {
                     onAddExp={this.props.onAddExp}
                     data={this.props.data}
                 />
-                <div>
-                    <Education 
-                        onChange={this.props.onChange}
-                    />
-                    <button>
-                        Add Education
-                    </button> 
-                </div>
+                <Education 
+                    onChange={this.props.onChange}
+                    onAddEdu={this.props.onAddEdu}
+                />
                 <button>
                     Submit to printer
                 </button>
