@@ -4,6 +4,9 @@ class ExtraEducationInput extends Component {
     render(){
         return(
             <form>
+                <p
+                    id={this.props.id}>
+                </p>
                 <label htmlFor="university">
                     <input 
                         onChange= {this.props.onChange}
