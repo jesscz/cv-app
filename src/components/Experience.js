@@ -13,6 +13,8 @@ class Experience extends Component {
                 number={i}
                 id={'exp'+i}
                 onChange={this.props.onChange}
+                onDescriptionChange={this.props.onDescriptionChange}
+                onJobClick={this.props.onJobClick}
                 data={this.props.data}
             />)
         }
@@ -77,13 +79,19 @@ class Experience extends Component {
                             className="expEnd" 
                         />
                     </label>
-                    <label htmlFor="description">
-                        <textarea
-                            onChange= {this.props.onChange}
-                            placeholder="Job points"
-                            className="description"
-                        />
-                    </label>
+                    <div>
+                        <label htmlFor="description">
+                            <input
+                                onChange= {this.props.onDescriptionChange}
+                                placeholder="Job point"
+                                className='0'
+                            />
+                        </label>
+                        <button
+                            onClick={this.props.onJobClick}>
+                            Add job point
+                        </button>
+                    </div>
                 </form>
                 <div id='expExtras'>
                     {children}

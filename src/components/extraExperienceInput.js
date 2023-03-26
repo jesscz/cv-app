@@ -57,13 +57,19 @@ class ExtraExperienceInput extends Component {
                         className="expEnd" 
                     />
                 </label>
-                <label htmlFor="description">
-                    <textarea
-                        onChange= {this.props.onChange}
-                        placeholder="Job points"
-                        className="description"
-                    />
-                </label>
+                <div>
+                    <label htmlFor="description">
+                        <input
+                            onChange= {this.props.onDescriptionChange}
+                            placeholder="Job points"
+                            className="0"
+                        />
+                    </label>
+                    <button
+                        onClick={this.props.onJobClick}>
+                        Add job point
+                    </button>
+                </div>
             </form>
         );
     }

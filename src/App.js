@@ -30,7 +30,8 @@ class App extends Component {
         expStart: '',
         expCurrent: '',
         expEnd: '',
-        description: '', 
+        descriptionChildren: 0,
+        description: [], 
       },
       education : {
         university: '',
@@ -44,9 +45,6 @@ class App extends Component {
   }
   
   handleFormChange = (e) => { //function for changing state when form input changes
-    console.log(e.target.value);
-    console.log(e.target.className);
-    console.log()
     this.setState(state => {
       const x = e.target.parentNode.parentNode.firstChild.id;
       if (e.target.id === ''){
@@ -69,6 +67,37 @@ class App extends Component {
     }
   }
 
+  handleDescriptionChange = (e) => {
+    this.setState(state => {
+      const x = e.target.parentNode.parentNode.parentNode.firstChild.id;
+      state[x].description[e.target.className]= e.target.value
+    
+      
+      // }
+      // else{
+      //   state[x][e.target.id] = e.target.value;
+      // }
+      return state;
+    })
+    const x = e.target.parentNode.parentNode.parentNode.firstChild.id; //'experience'
+    console.log(e.target.id)
+    console.log(x)
+  }
+
+  handleAddJobPointBtnClick = (e) => {
+    e.preventDefault();
+    this.setState(state => {
+      const x = e.target.parentNode.parentNode.firstChild.id;
+      state[x].descriptionChildren += 0.5;
+      if (state[x].descriptionChildren % 1 === 0) {
+        
+      }
+      return state;
+    })
+    const x = e.target.parentNode.parentNode.firstChild.id;
+    console.log(x)
+  }
+
   handleAddExpBtnClick = (e) => {
     e.preventDefault();
     this.setState(state => { //sets number of extra exp there should be 
@@ -82,7 +111,8 @@ class App extends Component {
           expStart: '',
           expCurrent: '',
           expEnd: '',
-          description: '', 
+          descriptionChildren: 0,
+          description: [], 
         }
       }
       return state;
@@ -118,6 +148,8 @@ class App extends Component {
         <Form 
           onChange = {this.handleFormChange}
           onPhotoChange = {this.handlePhotoChange}
+          onDescriptionChange = {this.handleDescriptionChange}
+          onJobClick = {this.handleAddJobPointBtnClick}
           onAddExp = {this.handleAddExpBtnClick}
           onAddEdu = {this.handleAddEduBtnClick}
           data = {this.state}

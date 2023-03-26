@@ -16,6 +16,8 @@ class Form extends Component {
                 />
                 <Experience 
                     onChange={this.props.onChange}
+                    onDescriptionChange={this.props.onDescriptionChange}
+                    onJobClick={this.props.onJobClick}
                     onAddExp={this.props.onAddExp}
                     data={this.props.data}
                 />
