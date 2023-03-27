@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
+import ExtraJobPoints from './extraJobPoints';
 
 
 class ExtraExperienceInput extends Component {
     render() {
-        // const id = {this.props.key}
+
+        const extraJobPoint = [];
+
+        for (let i = 1; i <= this.props.data.experience.descriptionChildren; i += 1) {
+            extraJobPoint.push(<
+             ExtraJobPoints
+                i={i}
+                onDescriptionChange={this.props.onDescriptionChange}
+            />)
+        }
+
         return (
             <form>
                 <p
@@ -64,6 +75,9 @@ class ExtraExperienceInput extends Component {
                             placeholder="Job points"
                             className="0"
                         />
+                    </label>
+                    <label>
+                        {extraJobPoint}
                     </label>
                     <button
                         onClick={this.props.onJobClick}>

@@ -80,7 +80,7 @@ class App extends Component {
       return state;
     })
     const x = e.target.parentNode.parentNode.parentNode.firstChild.id; //'experience'
-    console.log(e.target.id)
+    console.log(e.target.className)
     console.log(x)
   }
 
@@ -90,7 +90,7 @@ class App extends Component {
       const x = e.target.parentNode.parentNode.firstChild.id;
       state[x].descriptionChildren += 0.5;
       if (state[x].descriptionChildren % 1 === 0) {
-        
+        //??
       }
       return state;
     })

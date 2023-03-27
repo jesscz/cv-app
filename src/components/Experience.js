@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import ExtraExperienceInput from './extraExperienceInput';
-
+import ExtraJobPoints from './extraJobPoints';
 
 class Experience extends Component {
     render() {
 
-        const children = [];
+        const extraExpInputs = [];
 
         for (let i = 1; i <= this.props.data.other.numChildrenExp; i += 1) {
-           children.push(< 
+           extraExpInputs.push(< 
             ExtraExperienceInput 
                 number={i}
                 id={'exp'+i}
@@ -16,6 +16,16 @@ class Experience extends Component {
                 onDescriptionChange={this.props.onDescriptionChange}
                 onJobClick={this.props.onJobClick}
                 data={this.props.data}
+            />)
+        }
+
+        const extraJobPoint = [];
+
+        for (let i = 1; i <= this.props.data.experience.descriptionChildren; i += 1) {
+            extraJobPoint.push(<
+             ExtraJobPoints
+                i={i}
+                onDescriptionChange={this.props.onDescriptionChange}
             />)
         }
 
@@ -87,6 +97,9 @@ class Experience extends Component {
                                 className='0'
                             />
                         </label>
+                        <label>
+                            {extraJobPoint}
+                        </label>
                         <button
                             onClick={this.props.onJobClick}>
                             Add job point
@@ -94,7 +107,7 @@ class Experience extends Component {
                     </div>
                 </form>
                 <div id='expExtras'>
-                    {children}
+                    {extraExpInputs}
                 </div>
                 <button>
                     {/* onClick={this.props.}> */}
