@@ -7,7 +7,7 @@ class ExtraExperienceInput extends Component {
 
         const extraJobPoint = [];
 
-        for (let i = 1; i <= this.props.data.experience.descriptionChildren; i += 1) {
+        for (let i = 1; i <= this.props.data[this.props.id].descriptionChildren; i += 1) {
             extraJobPoint.push(<
              ExtraJobPoints
                 i={i}
