@@ -41,3 +41,6 @@
 .expCity {
     font-style: italic;
 }
+li{
+    line-height: normal;
+}

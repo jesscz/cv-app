@@ -68,8 +68,8 @@ class ExtraExperienceInput extends Component {
                         className="expEnd" 
                     />
                 </label>
-                <div>
-                    <label htmlFor="description">
+                <div htmlFor="description" className='jobPoints'>
+                    <label>
                         <input
                             onChange= {this.props.onDescriptionChange}
                             placeholder="Job points"

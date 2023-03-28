@@ -23,6 +23,7 @@ class Preview extends Component {
             />)
         }
 
+
         return (
             <div className='preview'>
                 <div className='previewPersonalInfo'>
@@ -44,7 +45,14 @@ class Preview extends Component {
                         <span className='expCity'>{this.props.data.experience.expCity}{' '}</span>
                         <span>{'('}{this.props.data.experience.expStart}{' to '}</span>
                         <span>{this.props.data.experience.expEnd}{')'}</span>
-                        <p>{this.props.data.experience.description}</p>
+                        <ul>{this.props.data.experience.description
+                            .filter((i) => {
+                                return i !== '';
+                            })
+                            .map((i) => {
+                                return <li>{[i]}</li>
+                            })
+                        }</ul>
                     </div>
                     {expChildren}
                 </div>
