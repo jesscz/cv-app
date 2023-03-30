@@ -9,6 +9,10 @@ class App extends Component {
 
     this.handleFormChange = this.handleFormChange.bind(this);
     this.handlePhotoChange = this.handlePhotoChange.bind(this);
+    this.handleDescriptionChange = this.handleDescriptionChange(this);
+    this.handleAddJobPointBtnClick = this.handleAddJobPointBtnClick(this);
+    this.handleAddExpBtnClick = this.handleAddExpBtnClick(this);
+    this.handleAddEduBtnClick = this.handleAddEduBtnClick(this);
 
     this.state = {
       other : {
@@ -71,17 +75,8 @@ class App extends Component {
     this.setState(state => {
       const x = e.target.parentNode.parentNode.parentNode.firstChild.id;
       state[x].description[e.target.className]= e.target.value
-    
-      
-      // }
-      // else{
-      //   state[x][e.target.id] = e.target.value;
-      // }
       return state;
     })
-    const x = e.target.parentNode.parentNode.parentNode.firstChild.id; //'experience'
-    console.log(e.target.className)
-    console.log(x)
   }
 
   handleAddJobPointBtnClick = (e) => {
@@ -89,9 +84,6 @@ class App extends Component {
     this.setState(state => {
       const x = e.target.parentNode.parentNode.firstChild.id;
       state[x].descriptionChildren += 0.5;
-      if (state[x].descriptionChildren % 1 === 0) {
-        //??
-      }
       return state;
     })
     const x = e.target.parentNode.parentNode.firstChild.id;
@@ -99,7 +91,7 @@ class App extends Component {
   }
 
   handleAddExpBtnClick = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     this.setState(state => { //sets number of extra exp there should be 
       state.other.numChildrenExp = state.other.numChildrenExp + 0.5; //it adds twice every button press (idk why), so i improvised with 0.5 to add 1 on each button press 
       if (state.other.numChildrenExp % 1 === 0) {
