@@ -112,7 +112,7 @@ class App extends Component {
   }
 
   handleDeleteExpBtnClick = (e) => {
-
+    console.log('deketexp')
   }
 
   handleAddEduBtnClick = (e) => {
@@ -135,9 +135,9 @@ class App extends Component {
   }
 
   handleDeleteEduBtnClick = (e) => {
-
+    console.log('sdfa')
   }
-  
+
   render() {
     return (
       <div className='main'>
@@ -151,7 +151,9 @@ class App extends Component {
           onDescriptionChange = {this.handleDescriptionChange}
           onJobClick = {this.handleAddJobPointBtnClick}
           onAddExp = {this.handleAddExpBtnClick}
+          onDeleteExp = {this.handleDeleteExpBtnClick}
           onAddEdu = {this.handleAddEduBtnClick}
+          onDeleteEdu = {this.handleDeleteEduBtnClick}
           data = {this.state}
         />
 

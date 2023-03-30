@@ -18,11 +18,13 @@ class Form extends Component {
                     onDescriptionChange={this.props.onDescriptionChange}
                     onJobClick={this.props.onJobClick}
                     onAddExp={this.props.onAddExp}
+                    onDeleteExp={this.props.onDeleteExp}
                     data={this.props.data}
                 />
                 <Education 
                     onChange={this.props.onChange}
                     onAddEdu={this.props.onAddEdu}
+                    onDeleteEdu={this.props.onDeleteEdu}
                     data={this.props.data}
                 />
                 <button>

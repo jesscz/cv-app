@@ -79,8 +79,8 @@ class Education extends Component {
                     onClick={this.props.onAddEdu}>
                     Add education section
                 </button> 
-                <button>
-                    {/* onClick={this.props.}> */}
+                <button
+                    onClick={this.props.onDeleteEdu}>
                     Delete last section
                 </button>
             </div>

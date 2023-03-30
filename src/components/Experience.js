@@ -109,8 +109,8 @@ class Experience extends Component {
                     onClick={this.props.onAddExp}>
                     Add experience section
                 </button>
-                <button>
-                    {/* onClick={this.props.}> */}
+                <button
+                    onClick={this.props.onDeleteExp}>
                     Delete last section
                 </button>
             </div>
