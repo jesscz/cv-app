@@ -9,10 +9,10 @@ class App extends Component {
 
     this.handleFormChange = this.handleFormChange.bind(this);
     this.handlePhotoChange = this.handlePhotoChange.bind(this);
-    this.handleDescriptionChange = this.handleDescriptionChange(this);
-    this.handleAddJobPointBtnClick = this.handleAddJobPointBtnClick(this);
-    this.handleAddExpBtnClick = this.handleAddExpBtnClick(this);
-    this.handleAddEduBtnClick = this.handleAddEduBtnClick(this);
+    // this.handleDescriptionChange = this.handleDescriptionChange(this);
+    // this.handleAddJobPointBtnClick = this.handleAddJobPointBtnClick(this);
+    // this.handleAddExpBtnClick = this.handleAddExpBtnClick(this);
+    // this.handleAddEduBtnClick = this.handleAddEduBtnClick(this);
 
     this.state = {
       other : {
@@ -111,6 +111,10 @@ class App extends Component {
     })
   }
 
+  handleDeleteExpBtnClick = (e) => {
+
+  }
+
   handleAddEduBtnClick = (e) => {
     // e.preventDefault();
     this.setState(state => { //sets number of extra exp there should be 
@@ -130,6 +134,10 @@ class App extends Component {
     })
   }
 
+  handleDeleteEduBtnClick = (e) => {
+
+  }
+  
   render() {
     return (
       <div className='main'>
