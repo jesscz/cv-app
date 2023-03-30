@@ -37,10 +37,6 @@ class Experience extends Component {
                         className="sectionTitle">
                         Experience:
                     </p>
-                    <button
-                        onClick={this.props.onAddExp}>
-                        Add Experience
-                    </button>
                     <label htmlFor="company">
                         <input 
                             onChange= {this.props.onChange}
@@ -109,9 +105,13 @@ class Experience extends Component {
                 <div id='expExtras'>
                     {extraExpInputs}
                 </div>
+                <button
+                    onClick={this.props.onAddExp}>
+                    Add experience section
+                </button>
                 <button>
                     {/* onClick={this.props.}> */}
-                    Delete
+                    Delete last section
                 </button>
             </div>
         );

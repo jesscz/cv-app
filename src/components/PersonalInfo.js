@@ -30,7 +30,6 @@ class PersonalInfo extends Component {
                     <input 
                         onChange= {this.props.onPhotoChange}
                         type="file" 
-                        // placeholder="Photo"
                         id="photoId" 
                     />
                 </label>

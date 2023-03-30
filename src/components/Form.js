@@ -7,7 +7,6 @@ import Education from './Education';
 
 class Form extends Component {
     render() {
-
         return (
             <div className='form'>
                 <PersonalInfo 

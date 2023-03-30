@@ -25,10 +25,6 @@ class Education extends Component {
                         className="sectionTitle">
                         Education:
                     </p>
-                    <button
-                        onClick={this.props.onAddEdu}>
-                        Add Education
-                    </button> 
                     <label htmlFor="university">
                         <input 
                             onChange= {this.props.onChange}
@@ -79,9 +75,13 @@ class Education extends Component {
                 <div id='eduExtras'>
                     {children}
                 </div>
+                <button
+                    onClick={this.props.onAddEdu}>
+                    Add education section
+                </button> 
                 <button>
                     {/* onClick={this.props.}> */}
-                    Delete
+                    Delete last section
                 </button>
             </div>
         );
