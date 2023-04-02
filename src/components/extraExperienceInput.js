@@ -17,9 +17,9 @@ class ExtraExperienceInput extends Component {
 
         return (
             <form>
-                <p
+                <div
                     id={this.props.id}>
-                </p>
+                </div>
                 <label htmlFor="company">
                     <input 
                         onChange= {this.props.onChange}

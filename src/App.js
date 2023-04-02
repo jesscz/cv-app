@@ -111,8 +111,15 @@ class App extends Component {
     })
   }
 
-  handleDeleteExpBtnClick = (e) => {
-    console.log('deketexp')
+  handleDeleteExpBtnClick = () => {
+    
+    this.setState(prevState => {
+      const state = {...prevState}
+      let x = 'exp' + state.other.numChildrenExp;
+      console.log(x)
+      delete state[x];
+      return state;
+    })
   }
 
   handleAddEduBtnClick = (e) => {
