@@ -118,6 +118,9 @@ class App extends Component {
       let x = 'exp' + state.other.numChildrenExp;
       console.log(x)
       delete state[x];
+      if (state.other.numChildrenExp > 0) {
+        state.other.numChildrenExp -= 0.5;
+      }
       return state;
     })
   }
@@ -142,7 +145,16 @@ class App extends Component {
   }
 
   handleDeleteEduBtnClick = (e) => {
-    console.log('sdfa')
+    this.setState(prevState => {
+      const state = {...prevState}
+      let x = 'edu' + state.other.numChildrenEdu;
+      console.log(x)
+      delete state[x];
+      if (state.other.numChildrenEdu > 0){
+        state.other.numChildrenEdu -= 0.5;
+      }
+      return state;
+    })
   }
 
   render() {
