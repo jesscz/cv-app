@@ -5,7 +5,9 @@
 }
 header {
     font-size: 50px;
-    background-color: rgb(220, 220, 220);
+    background-color: rgb(50, 146, 214);
+    padding: 10px;
+    color: white;
     text-align: center;
     width: 100%;
     grid-column: 1/3;
