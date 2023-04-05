@@ -9,10 +9,6 @@ class App extends Component {
 
     this.handleFormChange = this.handleFormChange.bind(this);
     this.handlePhotoChange = this.handlePhotoChange.bind(this);
-    // this.handleDescriptionChange = this.handleDescriptionChange(this);
-    // this.handleAddJobPointBtnClick = this.handleAddJobPointBtnClick(this);
-    // this.handleAddExpBtnClick = this.handleAddExpBtnClick(this);
-    // this.handleAddEduBtnClick = this.handleAddEduBtnClick(this);
 
     this.state = {
       other : {
@@ -90,71 +86,96 @@ class App extends Component {
     console.log(x)
   }
 
-  handleAddExpBtnClick = (e) => {
-    // e.preventDefault();
-    this.setState(state => { //sets number of extra exp there should be 
-      state.other.numChildrenExp = state.other.numChildrenExp + 0.5; //it adds twice every button press (idk why), so i improvised with 0.5 to add 1 on each button press 
-      if (state.other.numChildrenExp % 1 === 0) {
-        let x = 'exp' + state.other.numChildrenExp; 
-        state[x] = {
-          company: '',
-          position: '',
-          expCity: '',
-          expStart: '',
-          expCurrent: '',
-          expEnd: '',
-          descriptionChildren: 0,
-          description: [], 
-        }
-      }
-      return state;
-    })
+  handleAddExpBtnClick = () => {
+    const state = this.state;
+    state.other.numChildrenExp += 1;
+    let x = 'exp' + state.other.numChildrenExp;
+    state[x] = {
+      company: '',
+      position: '',
+      expCity: '',
+      expStart: '',
+      expCurrent: '',
+      expEnd: '',
+      descriptionChildren: 0,
+      description: [], 
+    }
+    this.setState(state);
   }
+  // this.setState(state => { //this version is accessed twice? idk but this works 
+    //   state.other.numChildrenExp = state.other.numChildrenExp + 0.5; //it adds twice every button press (idk why), so i improvised with 0.5 to add 1 on each button press 
+    //   if (state.other.numChildrenExp % 1 === 0) {
+    //     let x = 'exp' + state.other.numChildrenExp; 
+    //     state[x] = {
+    //       company: '',
+    //       position: '',
+    //       expCity: '',
+    //       expStart: '',
+    //       expCurrent: '',
+    //       expEnd: '',
+    //       descriptionChildren: 0,
+    //       description: [], 
+    //     }
+    //   }
+    //   return state;
+    // })
+
+
+  // handleDeleteSection = () => {
+  //   //give button id = 'section's name' 
+  //   const section = e.target.id;
+
+  //   this.setState(prevState => {
+
+  //   })
+  // }
 
   handleDeleteExpBtnClick = () => {
-    
-    this.setState(prevState => {
-      const state = {...prevState}
-      let x = 'exp' + state.other.numChildrenExp;
-      console.log(x)
-      delete state[x];
-      if (state.other.numChildrenExp > 0) {
-        state.other.numChildrenExp -= 0.5;
-      }
-      return state;
-    })
+    const state = this.state;
+    let x = 'exp' + state.other.numChildrenExp;
+    delete state[x];
+    if (state.other.numChildrenExp > 0) {
+      state.other.numChildrenExp -= 1;
+    }
+    this.setState(state);
   }
 
-  handleAddEduBtnClick = (e) => {
-    // e.preventDefault();
-    this.setState(state => { //sets number of extra exp there should be 
-      state.other.numChildrenEdu = state.other.numChildrenEdu + 0.5; //it adds twice every button press (idk why), so i improvised with 0.5 to add 1 on each button press 
-      if (state.other.numChildrenEdu % 1 === 0) {
-        let x = 'edu' + state.other.numChildrenEdu; 
-        state[x] = {
-          university: '',
-          eduCity: '',
-          eduStart: '',
-          eduEnd: '',
-          degree: '',
-          subject: '',
-        }
-      }
-      return state;
-    })
+  handleAddEduBtnClick = () => {
+    const state = this.state;
+    state.other.numChildrenEdu += 1;
+    let x = 'edu' + state.other.numChildrenEdu;
+    state[x] = {
+        university: '',
+        eduCity: '',
+        eduStart: '',
+        eduEnd: '',
+        degree: '',
+        subject: '',
+    }
+    this.setState(state);  
   }
 
-  handleDeleteEduBtnClick = (e) => {
-    this.setState(prevState => {
-      const state = {...prevState}
-      let x = 'edu' + state.other.numChildrenEdu;
-      console.log(x)
-      delete state[x];
-      if (state.other.numChildrenEdu > 0){
-        state.other.numChildrenEdu -= 0.5;
-      }
-      return state;
-    })
+  // handleDeleteEduBtnClick = () => {
+  //   this.setState(prevState => {
+  //     const state = {...prevState}
+  //     let x = 'edu' + state.other.numChildrenEdu;
+  //     console.log(x)
+  //     delete state[x];
+  //     if (state.other.numChildrenEdu > 0){
+  //       state.other.numChildrenEdu -= 0.5;
+  //     }
+  //     return state;
+  //   })
+  // } 
+
+  handleDeleteEduBtnClick = () => {
+    const state = this.state;
+    let x = 'edu' + state.other.numChildrenEdu;
+    delete state[x];
+    if (state.other.numChildrenEdu > 0){
+      state.other.numChildrenEdu -= 1;
+    }
+    this.setState(state);
   }
 
   render() {
