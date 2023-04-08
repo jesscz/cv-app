@@ -54,13 +54,14 @@ class ExtraExperienceInput extends Component {
                     />
                 </label>
                 <label htmlFor="expEnd"> {/* change to option to choose present */}
-                    Current: 
+                    {/* Current: 
                     <input
                         onChange= {this.props.onChange}
                         type="checkbox"
                         className="expCurrent"
                     />
-                    Or end date:
+                    Or end date: */}
+                    End date:
                     <input 
                         onChange= {this.props.onChange}
                         type="date" 

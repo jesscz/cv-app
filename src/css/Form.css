@@ -46,10 +46,3 @@ input {
     padding: 5px;
     
 }
-.form > button {
-    background-color: rgb(50, 146, 214);
-    font-size: 18px;
-    padding: 7px;
-    width: 20%;
-    height: auto;
-}

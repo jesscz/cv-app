@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactToPrint from 'react-to-print';
 import './css/App.css';
 import Form from './components/Form';
 import Preview from './components/Preview';
@@ -196,9 +197,16 @@ class App extends Component {
           onDeleteEdu = {this.handleDeleteEduBtnClick}
           data = {this.state}
         />
-
+        <ReactToPrint
+          trigger={() => {
+            return <button id='submit'>Submit to printer</button>;
+          }}
+          content={() => this.componentRef}
+        />
+        
         <Preview
           data = {this.state}
+          ref={el => (this.componentRef = el)}
         />
 
         <footer>
