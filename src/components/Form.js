@@ -27,7 +27,10 @@ class Form extends Component {
                     onDeleteEdu={this.props.onDeleteEdu}
                     data={this.props.data}
                 />
-                <button>
+                <button> 
+                    {/* onClick={() => 
+                    window.print()}> */}
+                    
                     Submit to printer
                 </button>
             </div>
