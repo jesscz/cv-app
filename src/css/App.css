@@ -1,3 +1,6 @@
+@media print {
+    *{font-family: arial;}
+}
 .main {
     display: grid;    
     grid-template-columns: 48% 48%;
