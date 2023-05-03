@@ -1,7 +1,6 @@
 import React from "react";
 
-function ExtraJobPoints(props) {
-    const { i, onDescriptionChange } = props;
+function ExtraJobPoints({ i, onDescriptionChange }) {
  return (
     <input 
         type="text"

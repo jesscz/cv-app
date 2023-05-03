@@ -10,7 +10,7 @@ class Experience extends Component {
         for (let i = 1; i <= this.props.data.other.numChildrenExp; i += 1) {
            extraExpInputs.push(< 
             ExtraExperienceInput 
-                number={i}
+                i={i}
                 id={'exp'+i}
                 onChange={this.props.onChange}
                 onDescriptionChange={this.props.onDescriptionChange}
