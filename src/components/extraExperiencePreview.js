@@ -1,21 +1,18 @@
-import React, { Component } from "react";
+import React from "react";
 
+function ExtraExperiencePreview({ i, data }) {
+ let x = 'exp'+i;
 
-class ExtraExperiencePreview extends Component {
-    render(){
-        let x = 'exp'+this.props.i;
-        return(
-            <div className='previewGroup'>
-                <p className='previewCompany'>{this.props.data[x].company}</p>
-                <span>{this.props.data[x].position}{' '}</span>
-                <span className='expCity'>{this.props.data[x].expCity}{' '}</span>
-                <span>{'('}{this.props.data[x].expStart}{' to '}</span>
-                <span>{this.props.data[x].expEnd}{')'}</span>
-                <p>{this.props.data[x].description}</p>
-            </div>
-        )
-    }
+ return (
+    <div className='previewGroup'>
+        <p className='previewCompany'>{data[x].company}</p>
+        <span>{data[x].position}{' '}</span>
+        <span className='expCity'>{data[x].expCity}{' '}</span>
+        <span>{'('}{data[x].expStart}{' to '}</span>
+        <span>{data[x].expEnd}{')'}</span>
+        <ul>{data[x].description}</ul>
+    </div> 
+ );
 }
-
 
 export default ExtraExperiencePreview;
