@@ -9,7 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "react-to-print": "^2.14.12",
     "web-vitals": "^2.1.4"
   },
@@ -41,5 +41,9 @@
   },
   "devDependencies": {
     "gh-pages": "^5.0.0"
-  }
+  },
+  "description": "This [Resume Creator](https://jesscz.github.io/cv-app/) project was built for [the odin project](https://www.theodinproject.com/) for the project [CV Application](https://www.theodinproject.com/lessons/node-path-javascript-cv-application). This is my first React project, I am practicing using class components.",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }
