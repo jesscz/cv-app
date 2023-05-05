@@ -1,121 +1,118 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ExtraExperienceInput from './extraExperienceInput';
 import ExtraJobPoints from './extraJobPoints';
 
-class Experience extends Component {
-    render() {
-        const extraExpInputs = [];
+function Experience({ onChange, onDescriptionChange, onJobClick, onAddExp, onDeleteExp, data }) {
 
-        for (let i = 1; i <= this.props.data.other.numChildrenExp; i += 1) {
-           extraExpInputs.push(< 
-            ExtraExperienceInput 
-                id={'exp'+i}
-                onChange={this.props.onChange}
-                onDescriptionChange={this.props.onDescriptionChange}
-                onJobClick={this.props.onJobClick}
-                data={this.props.data}
-            />)
-        }
+ const extraExpInputs = [];
 
-        const extraJobPoint = [];
-
-        for (let i = 1; i <= this.props.data.experience.descriptionChildren; i += 1) {
-            extraJobPoint.push(<
-             ExtraJobPoints
-                i={i}
-                onDescriptionChange={this.props.onDescriptionChange}
-            />)
-        }
-
-        return (
-            <div>
-                <form>
-                    <p 
-                        id="experience" 
-                        className="sectionTitle">
-                        Experience:
-                    </p>
-                    <label htmlFor="company">
-                        <input 
-                            onChange= {this.props.onChange}
-                            type="text" 
-                            placeholder="Company" 
-                            className="company" 
-                        />
-                    </label>
-                    <label htmlFor="position">
-                        <input 
-                            onChange= {this.props.onChange}
-                            type="text" 
-                            placeholder="Job title" 
-                            className="position" 
-                        />
-                    </label>
-                    <label htmlFor="city">
-                        <input 
-                            onChange= {this.props.onChange}
-                            type="text" 
-                            placeholder="City"                         
-                            className="expCity" 
-                        />
-                    </label>
-                    <label htmlFor="expStart">
-                        Start date: 
-                        <input 
-                            onChange= {this.props.onChange}
-                            type="date" 
-                            // name=""                             
-                            className="expStart" 
-                        />
-                    </label>
-                    <label htmlFor="expEnd"> {/* change to option to choose present */}
-                        {/* Current: 
-                        <input
-                            onChange= {this.props.onChange}
-                            type="checkbox"
-                            className="expCurrent"
-                        />
-                        Or end date: */}
-                        End date: 
-                        <input 
-                            onChange= {this.props.onChange}
-                            type="date" 
-                            // name="" 
-                            className="expEnd" 
-                        />
-                    </label>
-                    <div htmlFor="description" className='jobPoints'>
-                        <label>
-                            <input
-                                onChange= {this.props.onDescriptionChange}
-                                placeholder="Job point"
-                                className='0'
-                            />
-                        </label>
-                        <label>
-                            {extraJobPoint}
-                        </label>
-                        <button
-                            onClick={this.props.onJobClick}>
-                            Add job point
-                        </button>
-                    </div>
-                </form>
-                <div id='expExtras'>
-                    {extraExpInputs}
-                </div>
+ for (let i = 1; i <= data.other.numChildrenExp; i += 1) {
+    extraExpInputs.push(< 
+        ExtraExperienceInput 
+            id={'exp'+i}
+            onChange={onChange}
+            onDescriptionChange={onDescriptionChange}
+            onJobClick={onJobClick}
+            data={data}
+    />)
+ }
+    
+ const extraJobPoint = [];
+    
+ for (let i = 1; i <= data.experience.descriptionChildren; i += 1) {
+    extraJobPoint.push(<
+        ExtraJobPoints
+            i={i}
+            onDescriptionChange={onDescriptionChange}
+    />)
+ }
+ return (
+    <div>
+        <form>
+            <p 
+                id="experience" 
+                className="sectionTitle">
+                Experience:
+            </p>
+            <label htmlFor="company">
+                <input 
+                    onChange= {onChange}
+                    type="text" 
+                    placeholder="Company" 
+                    className="company" 
+                />
+            </label>
+            <label htmlFor="position">
+                <input 
+                    onChange= {onChange}
+                    type="text" 
+                    placeholder="Job title" 
+                    className="position" 
+                />
+            </label>
+            <label htmlFor="city">
+                <input 
+                    onChange= {onChange}
+                    type="text" 
+                    placeholder="City"                         
+                    className="expCity" 
+                />
+            </label>
+            <label htmlFor="expStart">
+                Start date: 
+                <input 
+                    onChange= {onChange}
+                    type="date" 
+                    // name=""                             
+                    className="expStart" 
+                />
+            </label>
+            <label htmlFor="expEnd"> {/* change to option to choose present */}
+                {/* Current: 
+                <input
+                    onChange= {onChange}
+                    type="checkbox"
+                    className="expCurrent"
+                />
+                Or end date: */}
+                End date: 
+                <input 
+                    onChange= {onChange}
+                    type="date" 
+                    // name="" 
+                    className="expEnd" 
+                />
+            </label>
+            <div htmlFor="description" className='jobPoints'>
+                <label>
+                    <input
+                        onChange= {onDescriptionChange}
+                        placeholder="Job point"
+                        className='0'
+                    />
+                </label>
+                <label>
+                    {extraJobPoint}
+                </label>
                 <button
-                    onClick={this.props.onAddExp}>
-                    Add experience section
-                </button>
-                <button
-                    onClick={this.props.onDeleteExp}>
-                    Delete last section
+                    onClick={onJobClick}>
+                    Add job point
                 </button>
             </div>
-        );
-    }
-
+        </form>
+        <div id='expExtras'>
+            {extraExpInputs}
+        </div>
+        <button
+            onClick={onAddExp}>
+            Add experience section
+        </button>
+        <button
+            onClick={onDeleteExp}>
+            Delete last section
+        </button>
+    </div>
+ );
 }
 
 export default Experience;
