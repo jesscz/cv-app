@@ -1,7 +1,7 @@
 import React  from "react";
 import ExtraJobPoints from "./extraJobPoints";
 
-function ExtraExperienceInput({ i, id, onChange, onDescriptionChange, onJobClick, data}) {
+function ExtraExperienceInput({ id, onChange, onDescriptionChange, onJobClick, data }) {
  const extraJobPoint = [];
 
  for (let i = 1; i <= data[id].descriptionChildren; i += 1) {
