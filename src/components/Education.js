@@ -2,15 +2,16 @@ import React from 'react';
 import ExtraEducationInput from './extraEducationInput';
 
 function Education({ onChange, onAddEdu, onDeleteEdu, data }) {
-    const children = [];
 
-    for (let i = 1; i <= data.other.numChildrenEdu; i += 1) {
-        children.push(<
-         ExtraEducationInput   
+ const children = [];
+
+ for (let i = 1; i <= data.other.numChildrenEdu; i += 1) {
+    children.push(<
+        ExtraEducationInput   
             id={'edu'+i}
             onChange={onChange}
-         />)
-    }
+    />)
+ }
  return (
     <div>
         <form>
