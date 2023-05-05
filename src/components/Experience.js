@@ -4,7 +4,6 @@ import ExtraJobPoints from './extraJobPoints';
 
 class Experience extends Component {
     render() {
-
         const extraExpInputs = [];
 
         for (let i = 1; i <= this.props.data.other.numChildrenExp; i += 1) {

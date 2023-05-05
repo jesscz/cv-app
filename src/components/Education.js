@@ -10,10 +10,8 @@ class Education extends Component {
         for (let i = 1; i <= this.props.data.other.numChildrenEdu; i += 1) {
             children.push(<
              ExtraEducationInput   
-                // i={i}
                 id={'edu'+i}
                 onChange={this.props.onChange}
-                // data={this.props.data}
              />)
         }
 
