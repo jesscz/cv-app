@@ -1,84 +1,126 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import ReactToPrint from 'react-to-print';
 import './css/App.css';
 import Form from './components/Form';
 import Preview from './components/Preview';
 
-class App extends Component {
-  constructor() {
-    super();
+function App() {
 
-    this.handleFormChange = this.handleFormChange.bind(this);
-    this.handlePhotoChange = this.handlePhotoChange.bind(this);
+  const [state, setState] = useState({
+    other: {
+      numChildrenExp: 0,
+      numChildrenEdu: 0,
+    },
+    personalInfo: {
+      firstName: '',
+      lastName: '',
+      photoId: null,
+      email: '',
+      phoneNumber: '',
+      address: '',
+    },
+    experience: {
+      company: '',
+      position: '',
+      expCity: '',
+      expStart: '',
+      expCurrent: '',
+      expEnd: '',
+      descriptionChildren: 0,
+      description: [], 
+    },
+    education: {
+      university: '',
+      eduCity: '',
+      eduStart: '',
+      eduEnd: '',
+      degree: '',
+      subject: '',
+    }
+  })
+  
+  // const handleFormChange = (e) => { //function for changing state when form input changes
+  //   // setState(state => {
+  //   //   const x = e.target.parentNode.parentNode.firstChild.id; //gets the first layer of the state(other/personalInfo/experience/education)
+  //   //   if (e.target.id === ''){
+  //   //     state[x][e.target.className] = e.target.value;
+  //   //   }
+  //   //   else{
+  //   //     state[x][e.target.id] = e.target.value; //stores at the e.target.id OR className depending which exists
+  //   //   }
+  //   //   console.log(state)
+  //   //   return state;
+  //   // })
+  //   const x = e.target.parentNode.parentNode.firstChild.id;
+  //   console.log(x)
+  //   setState({
+  //     ...state,
+  //     [x]: {
+  //       ...state.x,
+  //       [e.target.className]: e.target.value
+  //       // if (e.target.id === ''){
+  //       //   [e.target.className] = e.target.value;
+  //       // }
+  //       // else{
+  //       //   state[x][e.target.id] = e.target.value; //stores at the e.target.id OR className depending which exists
+  //       // }
+  //     }
 
-    this.state = {
-      other : {
-        numChildrenExp: 0,
-        numChildrenEdu: 0,
-      },
-      personalInfo : {
-        firstName: '',
-        lastName: '',
-        photoId: null,
-        email: '',
-        phoneNumber: '',
-        address: '',
-      },
-      experience : {
-        company: '',
-        position: '',
-        expCity: '',
-        expStart: '',
-        expCurrent: '',
-        expEnd: '',
-        descriptionChildren: 0,
-        description: [], 
-      },
-      education : {
-        university: '',
-        eduCity: '',
-        eduStart: '',
-        eduEnd: '',
-        degree: '',
-        subject: '',
-      } 
-    };
+  //   })
+  // }; 
+
+  const handlePiChange = (e) => {
+    setState({
+      ...state,
+      personalInfo: {
+        ...state.personalInfo,
+        [e.target.id]: e.target.value 
+      }
+    })
+  }
+
+  const handleExpChange = (e) => {
+    setState({
+      ...state,
+      experience: {
+        ...state.experience,
+        [e.target.className]: e.target.value
+      }
+    })
+  }
+
+  const handleEduChange = (e) => {
+    setState({
+      ...state,
+      education: {
+        ...state.education,
+        [e.target.className]: e.target.value
+      }
+    })
   }
   
-  handleFormChange = (e) => { //function for changing state when form input changes
-    this.setState(state => {
-      const x = e.target.parentNode.parentNode.firstChild.id;
-      if (e.target.id === ''){
-        state[x][e.target.className] = e.target.value;
-      }
-      else{
-        state[x][e.target.id] = e.target.value;
-      }
-      return state;
-    })
-  };
-  
-  handlePhotoChange = (e) => { //function for changing photo (in state where its stored)
+  const handlePhotoChange = (e) => { //function for changing photo (in state where its stored)
     if (e.target.files && e.target.files[0]) {
       let img = e.target.files[0];
-      this.setState(state => {
-        state.personalInfo.photoId = URL.createObjectURL(img)
+      setState(state => {
+        state.personalInfo.photoId = URL.createObjectURL(img);
+        console.log(state)
         return state;
       })
     }
   }
-
-  handleDescriptionChange = (e) => {
-    this.setState(state => {
+  //
+  const handleDescriptionChange = (e) => { 
+    setState(state => {
       const x = e.target.parentNode.parentNode.parentNode.firstChild.id;
       state[x].description[e.target.className]= e.target.value
       return state;
     })
   }
 
-  handleAddJobPointBtnClick = (e) => {
+  const handleAddJobPointBtnClick = (e) => {
     e.preventDefault();
-    this.setState(state => {
+    setState(state => {
       const x = e.target.parentNode.parentNode.firstChild.id;
       state[x].descriptionChildren += 0.5;
       return state;
@@ -87,11 +129,11 @@ class App extends Component {
     console.log(x)
   }
 
-  handleAddExpBtnClick = () => {
-    const state = this.state;
-    state.other.numChildrenExp += 1;
-    let x = 'exp' + state.other.numChildrenExp;
-    state[x] = {
+  const handleAddExpBtnClick = () => {
+    const tempState = state;
+    tempState.other.numChildrenExp += 1;
+    let x = 'exp' + tempState.other.numChildrenExp;
+    tempState[x] = {
       company: '',
       position: '',
       expCity: '',
@@ -101,9 +143,9 @@ class App extends Component {
       descriptionChildren: 0,
       description: [], 
     }
-    this.setState(state);
+    setState(tempState);
   }
-  // this.setState(state => { //this version is accessed twice? idk but this works 
+  // setState(state => { //this version is accessed twice? idk but this works 
     //   state.other.numChildrenExp = state.other.numChildrenExp + 0.5; //it adds twice every button press (idk why), so i improvised with 0.5 to add 1 on each button press 
     //   if (state.other.numChildrenExp % 1 === 0) {
     //     let x = 'exp' + state.other.numChildrenExp; 
@@ -122,30 +164,30 @@ class App extends Component {
     // })
 
 
-  // handleDeleteSection = () => {
+  // const handleDeleteSection = () => {
   //   //give button id = 'section's name' 
   //   const section = e.target.id;
 
-  //   this.setState(prevState => {
+  //   setState(prevState => {
 
   //   })
   // }
 
-  handleDeleteExpBtnClick = () => {
-    const state = this.state;
-    let x = 'exp' + state.other.numChildrenExp;
-    delete state[x];
-    if (state.other.numChildrenExp > 0) {
-      state.other.numChildrenExp -= 1;
+  const handleDeleteExpBtnClick = () => {
+    const tempState = state;
+    let x = 'exp' + tempState.other.numChildrenExp;
+    delete tempState[x];
+    if (tempState.other.numChildrenExp > 0) {
+      tempState.other.numChildrenExp -= 1;
     }
-    this.setState(state);
+    setState(tempState);
   }
 
-  handleAddEduBtnClick = () => {
-    const state = this.state;
-    state.other.numChildrenEdu += 1;
-    let x = 'edu' + state.other.numChildrenEdu;
-    state[x] = {
+  const handleAddEduBtnClick = () => {
+    const tempState = state;
+    tempState.other.numChildrenEdu += 1;
+    let x = 'edu' + tempState.other.numChildrenEdu;
+    tempState[x] = {
         university: '',
         eduCity: '',
         eduStart: '',
@@ -153,11 +195,11 @@ class App extends Component {
         degree: '',
         subject: '',
     }
-    this.setState(state);  
+    setState(tempState);  
   }
 
-  // handleDeleteEduBtnClick = () => {
-  //   this.setState(prevState => {
+  // const handleDeleteEduBtnClick = () => {
+  //   setState(prevState => {
   //     const state = {...prevState}
   //     let x = 'edu' + state.other.numChildrenEdu;
   //     console.log(x)
@@ -169,54 +211,56 @@ class App extends Component {
   //   })
   // } 
 
-  handleDeleteEduBtnClick = () => {
-    const state = this.state;
-    let x = 'edu' + state.other.numChildrenEdu;
-    delete state[x];
-    if (state.other.numChildrenEdu > 0){
-      state.other.numChildrenEdu -= 1;
+  const handleDeleteEduBtnClick = () => {
+    const tempState = state;
+    let x = 'edu' + tempState.other.numChildrenEdu;
+    delete tempState[x];
+    if (tempState.other.numChildrenEdu > 0){
+      tempState.other.numChildrenEdu -= 1;
     }
-    this.setState(state);
+    setState(tempState);
   }
 
-  render() {
-    return (
-      <div className='main'>
-        <header>
-          Resume Creator
-        </header>
+  return (
+    <div className='main'>
+      <header>
+        Resume Creator
+      </header>
 
-        <Form 
-          onChange = {this.handleFormChange}
-          onPhotoChange = {this.handlePhotoChange}
-          onDescriptionChange = {this.handleDescriptionChange}
-          onJobClick = {this.handleAddJobPointBtnClick}
-          onAddExp = {this.handleAddExpBtnClick}
-          onDeleteExp = {this.handleDeleteExpBtnClick}
-          onAddEdu = {this.handleAddEduBtnClick}
-          onDeleteEdu = {this.handleDeleteEduBtnClick}
-          data = {this.state}
-        />
-        <ReactToPrint
-          trigger={() => {
-            return <button id='submit'>Submit to printer</button>;
-          }}
-          content={() => this.componentRef}
-        />
+      <Form 
+        onPiChange = {handlePiChange}
+        onExpChange = {handleExpChange} 
+        onEduChange = {handleEduChange}
+        // onChange = {handleFormChange}
+        onPhotoChange = {handlePhotoChange}
+        onDescriptionChange = {handleDescriptionChange}
+        onJobClick = {handleAddJobPointBtnClick}
+        onAddExp = {handleAddExpBtnClick}
+        onDeleteExp = {handleDeleteExpBtnClick}
+        onAddEdu = {handleAddEduBtnClick}
+        onDeleteEdu = {handleDeleteEduBtnClick}
+        data = {state}
+      />
+      <ReactToPrint
+        trigger={() => {
+          return <button id='submit'>Submit to printer</button>;
+        }}
+        // content={() => componentRef}
+      />
         
-        <Preview
-          data = {this.state}
-          ref={el => (this.componentRef = el)}
-        />
+      <Preview
+        data = {state}
+        // ref={el => (componentRef = el)}
+      />
 
-        <footer>
-          <a href='https://github.com/jesscz'>
-            Copyright ©  2023 Jessie
-          </a>
-        </footer>
-      </div>
-    );
-  }
+      <footer>
+        <a href='https://github.com/jesscz'>
+          Copyright ©  2023 Jessie
+        </a>
+      </footer>
+    </div>
+  );
+  
 }
 
 export default App;

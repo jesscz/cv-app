@@ -5,15 +5,16 @@ import Experience from './Experience';
 import Education from './Education';
 
 
-function Form({ onChange, onPhotoChange, onDescriptionChange, onJobClick, onAddExp, onDeleteExp, onAddEdu, onDeleteEdu, data }) {
+function Form({ onPiChange, onExpChange, onEduChange, onPhotoChange, onDescriptionChange, onJobClick, onAddExp, onDeleteExp, onAddEdu, onDeleteEdu, data }) {
  return (
     <div className='form'>
         <PersonalInfo 
-            onChange={onChange}
+            onPiChange={onPiChange}
             onPhotoChange = {onPhotoChange}
         />
         <Experience 
-            onChange={onChange}
+            // onChange={onChange}
+            onExpChange={onExpChange}
             onDescriptionChange={onDescriptionChange}
             onJobClick={onJobClick}
             onAddExp={onAddExp}
@@ -21,7 +22,8 @@ function Form({ onChange, onPhotoChange, onDescriptionChange, onJobClick, onAddE
             data={data}
         />
         <Education 
-            onChange={onChange}
+            // onChange={onChange}
+            onEduChange={onEduChange}
             onAddEdu={onAddEdu}
             onDeleteEdu={onDeleteEdu}
             data={data}

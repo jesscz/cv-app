@@ -1,7 +1,7 @@
 import React from 'react';
 import ExtraEducationInput from './extraEducationInput';
 
-function Education({ onChange, onAddEdu, onDeleteEdu, data }) {
+function Education({ onEduChange, onAddEdu, onDeleteEdu, data }) {
 
  const children = [];
 
@@ -9,7 +9,7 @@ function Education({ onChange, onAddEdu, onDeleteEdu, data }) {
     children.push(<
         ExtraEducationInput   
             id={'edu'+i}
-            onChange={onChange}
+            onChange={onEduChange}
     />)
  }
  return (
@@ -22,14 +22,14 @@ function Education({ onChange, onAddEdu, onDeleteEdu, data }) {
             </p>
             <label htmlFor="university">
                 <input 
-                    onChange= {onChange}
+                    onChange= {onEduChange}
                     type="text" 
                     placeholder="University name" 
                     className="university" 
                 />
             </label><label htmlFor="city">
                 <input 
-                    onChange= {onChange}
+                    onChange= {onEduChange}
                     type="text" 
                     placeholder="City"
                     className="eduCity" 
@@ -37,14 +37,14 @@ function Education({ onChange, onAddEdu, onDeleteEdu, data }) {
             </label>
             <label htmlFor="eduStart">
                 <input 
-                    onChange= {onChange}
+                    onChange= {onEduChange}
                     type="date" 
                     className="eduStart" 
                 />
             </label>
             <label htmlFor="eduEnd"> {/* change to option to choose present */}
                 <input 
-                    onChange= {onChange}
+                    onChange= {onEduChange}
                     type="date" 
                     // name="" 
                     className="eduEnd"
@@ -52,7 +52,7 @@ function Education({ onChange, onAddEdu, onDeleteEdu, data }) {
             </label>
             <label htmlFor="degree">
                 <input 
-                    onChange= {onChange}
+                    onChange= {onEduChange}
                     type="text" 
                     placeholder="Degree"
                     className="degree" 
@@ -60,7 +60,7 @@ function Education({ onChange, onAddEdu, onDeleteEdu, data }) {
             </label>
             <label htmlFor="subject">
                 <input 
-                    onChange= {onChange}
+                    onChange= {onEduChange}
                     type="text" 
                     placeholder="Subject"
                     className="subject" 

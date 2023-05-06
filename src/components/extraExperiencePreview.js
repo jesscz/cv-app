@@ -10,11 +10,13 @@ function ExtraExperiencePreview({ i, data }) {
         <span className='expCity'>{data[x].expCity}{' '}</span>
         <span>{'('}{data[x].expStart}{' to '}</span>
         <span>{data[x].expEnd}{')'}</span>
-        <ul>{data[x].description.filter((i) => {
+        <ul>{data[x].description
+        .filter((i) => {
             return i !== '';
         }).map((i) => {
             return <li>{[i]}</li>
-        })}</ul>
+        })
+        }</ul>
     </div> 
  );
 }

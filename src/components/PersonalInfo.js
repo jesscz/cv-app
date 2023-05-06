@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PersonalInfo({ onChange, onPhotoChange }) {
+function PersonalInfo({ onPiChange, onPhotoChange }) {
  return (
     <form>
         <p
@@ -10,7 +10,7 @@ function PersonalInfo({ onChange, onPhotoChange }) {
         </p>
         <label htmlFor="firstName">
             <input 
-                onChange= {onChange}
+                onChange= {onPiChange}
                 type="text" 
                 placeholder="First name"
                 id="firstName" 
@@ -18,7 +18,7 @@ function PersonalInfo({ onChange, onPhotoChange }) {
         </label>
         <label htmlFor="lastName">
             <input 
-                onChange= {onChange}
+                onChange= {onPiChange}
                 type="text" 
                 placeholder="Last name"
                 id="lastName" 
@@ -33,7 +33,7 @@ function PersonalInfo({ onChange, onPhotoChange }) {
         </label>
         <label htmlFor="email">
             <input 
-                onChange= {onChange}
+                onChange= {onPiChange}
                 type="text" 
                 placeholder="Email"
                 id="email" 
@@ -41,7 +41,7 @@ function PersonalInfo({ onChange, onPhotoChange }) {
         </label>
         <label htmlFor="phoneNumber">
             <input 
-                onChange= {onChange}
+                onChange= {onPiChange}
                 type="text" 
                 placeholder="Phone number"
                 id="phoneNumber" 
@@ -49,7 +49,7 @@ function PersonalInfo({ onChange, onPhotoChange }) {
         </label>
         <label htmlFor="address">
             <input 
-                onChange= {onChange}
+                onChange= {onPiChange}
                 type="text" 
                 placeholder="Address"
                 id="address" 
