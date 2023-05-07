@@ -39,65 +39,46 @@ function App() {
     }
   })
   
-  // const handleFormChange = (e) => { //function for changing state when form input changes
-  //   // setState(state => {
-  //   //   const x = e.target.parentNode.parentNode.firstChild.id; //gets the first layer of the state(other/personalInfo/experience/education)
-  //   //   if (e.target.id === ''){
-  //   //     state[x][e.target.className] = e.target.value;
-  //   //   }
-  //   //   else{
-  //   //     state[x][e.target.id] = e.target.value; //stores at the e.target.id OR className depending which exists
-  //   //   }
-  //   //   console.log(state)
-  //   //   return state;
-  //   // })
-  //   const x = e.target.parentNode.parentNode.firstChild.id;
-  //   console.log(x)
+  const handleFormChange = (e) => { //function for changing state when form input changes
+    const x = e.target.parentNode.parentNode.firstChild.id;
+    setState({
+      ...state,
+      [x]: {
+        ...state[x],
+        [e.target.className]: e.target.value
+      }
+    })
+  }; 
+
+  // const handlePiChange = (e) => {
   //   setState({
   //     ...state,
-  //     [x]: {
-  //       ...state.x,
-  //       [e.target.className]: e.target.value
-  //       // if (e.target.id === ''){
-  //       //   [e.target.className] = e.target.value;
-  //       // }
-  //       // else{
-  //       //   state[x][e.target.id] = e.target.value; //stores at the e.target.id OR className depending which exists
-  //       // }
+  //     personalInfo: {
+  //       ...state.personalInfo,
+  //       [e.target.id]: e.target.value 
   //     }
-
   //   })
-  // }; 
+  // }
 
-  const handlePiChange = (e) => {
-    setState({
-      ...state,
-      personalInfo: {
-        ...state.personalInfo,
-        [e.target.id]: e.target.value 
-      }
-    })
-  }
+  // const handleExpChange = (e) => {
+  //   setState({
+  //     ...state,
+  //     experience: {
+  //       ...state.experience,
+  //       [e.target.className]: e.target.value
+  //     }
+  //   })
+  // }
 
-  const handleExpChange = (e) => {
-    setState({
-      ...state,
-      experience: {
-        ...state.experience,
-        [e.target.className]: e.target.value
-      }
-    })
-  }
-
-  const handleEduChange = (e) => {
-    setState({
-      ...state,
-      education: {
-        ...state.education,
-        [e.target.className]: e.target.value
-      }
-    })
-  }
+  // const handleEduChange = (e) => {
+  //   setState({
+  //     ...state,
+  //     education: {
+  //       ...state.education,
+  //       [e.target.className]: e.target.value
+  //     }
+  //   })
+  // }
   
   const handlePhotoChange = (e) => { //function for changing photo (in state where its stored)
     if (e.target.files && e.target.files[0]) {
@@ -228,10 +209,10 @@ function App() {
       </header>
 
       <Form 
-        onPiChange = {handlePiChange}
-        onExpChange = {handleExpChange} 
-        onEduChange = {handleEduChange}
-        // onChange = {handleFormChange}
+        // onPiChange = {handlePiChange}
+        // onExpChange = {handleExpChange} 
+        // onEduChange = {handleEduChange}
+        onChange = {handleFormChange}
         onPhotoChange = {handlePhotoChange}
         onDescriptionChange = {handleDescriptionChange}
         onJobClick = {handleAddJobPointBtnClick}

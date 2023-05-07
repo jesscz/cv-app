@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PersonalInfo({ onPiChange, onPhotoChange }) {
+function PersonalInfo({ onChange, onPhotoChange }) {
  return (
     <form>
         <p
@@ -10,49 +10,49 @@ function PersonalInfo({ onPiChange, onPhotoChange }) {
         </p>
         <label htmlFor="firstName">
             <input 
-                onChange= {onPiChange}
+                onChange= {onChange}
                 type="text" 
                 placeholder="First name"
-                id="firstName" 
+                className="firstName" 
             />
         </label>
         <label htmlFor="lastName">
             <input 
-                onChange= {onPiChange}
+                onChange= {onChange}
                 type="text" 
                 placeholder="Last name"
-                id="lastName" 
+                className="lastName" 
             />
         </label>
         <label htmlFor="photoId">Select photo ID image: 
             <input 
                 onChange= {onPhotoChange}
                 type="file" 
-                id="photoId" 
+                className="photoId" 
             />
         </label>
         <label htmlFor="email">
             <input 
-                onChange= {onPiChange}
+                onChange= {onChange}
                 type="text" 
                 placeholder="Email"
-                id="email" 
+                className="email" 
             />
         </label>
         <label htmlFor="phoneNumber">
             <input 
-                onChange= {onPiChange}
+                onChange= {onChange}
                 type="text" 
                 placeholder="Phone number"
-                id="phoneNumber" 
+                className="phoneNumber" 
             />
         </label>
         <label htmlFor="address">
             <input 
-                onChange= {onPiChange}
+                onChange= {onChange}
                 type="text" 
                 placeholder="Address"
-                id="address" 
+                className="address" 
             />
         </label>
     </form>

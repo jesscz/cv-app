@@ -2,7 +2,7 @@ import React from 'react';
 import ExtraExperienceInput from './extraExperienceInput';
 import ExtraJobPoints from './extraJobPoints';
 
-function Experience({ onExpChange, onDescriptionChange, onJobClick, onAddExp, onDeleteExp, data }) {
+function Experience({ onChange, onDescriptionChange, onJobClick, onAddExp, onDeleteExp, data }) {
 
  const extraExpInputs = [];
 
@@ -10,13 +10,13 @@ function Experience({ onExpChange, onDescriptionChange, onJobClick, onAddExp, on
     extraExpInputs.push(< 
         ExtraExperienceInput 
             id={'exp'+i}
-            onChange={onExpChange}
+            onChange={onChange}
             onDescriptionChange={onDescriptionChange}
             onJobClick={onJobClick}
             data={data}
     />)
  }
-    
+  
  const extraJobPoint = [];
     
  for (let i = 1; i <= data.experience.descriptionChildren; i += 1) {
@@ -36,7 +36,7 @@ function Experience({ onExpChange, onDescriptionChange, onJobClick, onAddExp, on
             </p>
             <label htmlFor="company">
                 <input 
-                    onChange= {onExpChange}
+                    onChange= {onChange}
                     type="text" 
                     placeholder="Company" 
                     className="company" 
@@ -44,7 +44,7 @@ function Experience({ onExpChange, onDescriptionChange, onJobClick, onAddExp, on
             </label>
             <label htmlFor="position">
                 <input 
-                    onChange= {onExpChange}
+                    onChange= {onChange}
                     type="text" 
                     placeholder="Job title" 
                     className="position" 
@@ -52,7 +52,7 @@ function Experience({ onExpChange, onDescriptionChange, onJobClick, onAddExp, on
             </label>
             <label htmlFor="city">
                 <input 
-                    onChange= {onExpChange}
+                    onChange= {onChange}
                     type="text" 
                     placeholder="City"                         
                     className="expCity" 
@@ -61,7 +61,7 @@ function Experience({ onExpChange, onDescriptionChange, onJobClick, onAddExp, on
             <label htmlFor="expStart">
                 Start date: 
                 <input 
-                    onChange= {onExpChange}
+                    onChange= {onChange}
                     type="date" 
                     // name=""                             
                     className="expStart" 
@@ -70,14 +70,14 @@ function Experience({ onExpChange, onDescriptionChange, onJobClick, onAddExp, on
             <label htmlFor="expEnd"> {/* change to option to choose present */}
                 {/* Current: 
                 <input
-                    onChange= {onExpChange}
+                    onChange= {onChange}
                     type="checkbox"
                     className="expCurrent"
                 />
                 Or end date: */}
                 End date: 
                 <input 
-                    onChange= {onExpChange}
+                    onChange= {onChange}
                     type="date" 
                     // name="" 
                     className="expEnd" 
