@@ -9,12 +9,10 @@ function Form({ onChange, onPhotoChange, onDescriptionChange, onJobClick, onAddE
  return (
     <div className='form'>
         <PersonalInfo 
-            // onPiChange={onPiChange}
             onChange={onChange}
             onPhotoChange = {onPhotoChange}
         />
         <Experience 
-            // onExpChange={onExpChange}
             onChange={onChange}
             onDescriptionChange={onDescriptionChange}
             onJobClick={onJobClick}
@@ -23,7 +21,6 @@ function Form({ onChange, onPhotoChange, onDescriptionChange, onJobClick, onAddE
             data={data}
         />
         <Education 
-            // onEduChange={onEduChange}
             onChange={onChange}
             onAddEdu={onAddEdu}
             onDeleteEdu={onDeleteEdu}

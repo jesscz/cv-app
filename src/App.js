@@ -50,47 +50,19 @@ function App() {
     })
   }; 
 
-  // const handlePiChange = (e) => {
-  //   setState({
-  //     ...state,
-  //     personalInfo: {
-  //       ...state.personalInfo,
-  //       [e.target.id]: e.target.value 
-  //     }
-  //   })
-  // }
-
-  // const handleExpChange = (e) => {
-  //   setState({
-  //     ...state,
-  //     experience: {
-  //       ...state.experience,
-  //       [e.target.className]: e.target.value
-  //     }
-  //   })
-  // }
-
-  // const handleEduChange = (e) => {
-  //   setState({
-  //     ...state,
-  //     education: {
-  //       ...state.education,
-  //       [e.target.className]: e.target.value
-  //     }
-  //   })
-  // }
-  
   const handlePhotoChange = (e) => { //function for changing photo (in state where its stored)
     if (e.target.files && e.target.files[0]) {
       let img = e.target.files[0];
-      setState(state => {
-        state.personalInfo.photoId = URL.createObjectURL(img);
-        console.log(state)
-        return state;
+      setState({
+        ...state,
+        personalInfo: {
+          ...state.personalInfo,
+          photoId: URL.createObjectURL(img),
+        }
       })
     }
-  }
-  //
+  };
+  
   const handleDescriptionChange = (e) => { 
     setState(state => {
       const x = e.target.parentNode.parentNode.parentNode.firstChild.id;
