@@ -37,7 +37,7 @@ function App() {
       degree: '',
       subject: '',
     }
-  })
+  });
   
   const handleFormChange = (e) => { //function for changing state when form input changes
     const x = e.target.parentNode.parentNode.firstChild.id;
@@ -64,69 +64,56 @@ function App() {
   };
   
   const handleDescriptionChange = (e) => { 
-    setState(state => {
-      const x = e.target.parentNode.parentNode.parentNode.firstChild.id;
-      state[x].description[e.target.className]= e.target.value
-      return state;
+    const x = e.target.parentNode.parentNode.parentNode.firstChild.id;
+    setState({
+      ...state,
+      [x]: {
+        ...state[x],
+        description: [
+          [e.target.className]= e.target.value
+        ]
+      }
     })
-  }
+  };
 
   const handleAddJobPointBtnClick = (e) => {
     e.preventDefault();
-    setState(state => {
-      const x = e.target.parentNode.parentNode.firstChild.id;
-      state[x].descriptionChildren += 0.5;
-      return state;
-    })
     const x = e.target.parentNode.parentNode.firstChild.id;
-    console.log(x)
-  }
+    setState({
+      ...state,
+      [x]: {
+        ...state[x],
+        descriptionChildren: state[x].descriptionChildren + 1,
+      }
+    })
+  };
 
   const handleAddExpBtnClick = () => {
-    const tempState = state;
-    tempState.other.numChildrenExp += 1;
-    let x = 'exp' + tempState.other.numChildrenExp;
-    tempState[x] = {
-      company: '',
-      position: '',
-      expCity: '',
-      expStart: '',
-      expCurrent: '',
-      expEnd: '',
-      descriptionChildren: 0,
-      description: [], 
-    }
-    setState(tempState);
-  }
-  // setState(state => { //this version is accessed twice? idk but this works 
-    //   state.other.numChildrenExp = state.other.numChildrenExp + 0.5; //it adds twice every button press (idk why), so i improvised with 0.5 to add 1 on each button press 
-    //   if (state.other.numChildrenExp % 1 === 0) {
-    //     let x = 'exp' + state.other.numChildrenExp; 
-    //     state[x] = {
-    //       company: '',
-    //       position: '',
-    //       expCity: '',
-    //       expStart: '',
-    //       expCurrent: '',
-    //       expEnd: '',
-    //       descriptionChildren: 0,
-    //       description: [], 
-    //     }
-    //   }
-    //   return state;
-    // })
-
-
-  // const handleDeleteSection = () => {
-  //   //give button id = 'section's name' 
-  //   const section = e.target.id;
-
-  //   setState(prevState => {
-
-  //   })
-  // }
+    setState(state => ({
+      ...state,
+      other: {
+        ...state.other,
+        numChildrenExp: state.other.numChildrenExp + 1,
+      }
+    }))
+    let x = 'exp' + (state.other.numChildrenExp + 1);
+    setState(state => ({
+      ...state,
+      [x]: {
+        company: '',
+        position: '',
+        expCity: '',
+        expStart: '',
+        expCurrent: '',
+        expEnd: '',
+        descriptionChildren: 0,
+        description: [], 
+      }
+    }));
+  };
 
   const handleDeleteExpBtnClick = () => {
+
     const tempState = state;
     let x = 'exp' + tempState.other.numChildrenExp;
     delete tempState[x];
@@ -137,32 +124,26 @@ function App() {
   }
 
   const handleAddEduBtnClick = () => {
-    const tempState = state;
-    tempState.other.numChildrenEdu += 1;
-    let x = 'edu' + tempState.other.numChildrenEdu;
-    tempState[x] = {
+    setState(state => ({
+      ...state,
+      other: {
+        ...state.other,
+        numChildrenEdu: state.other.numChildrenEdu + 1,
+      }
+    }))
+    let x = 'edu' + (state.other.numChildrenEdu + 1)
+    setState(state => ({
+      ...state,
+      [x]: {
         university: '',
         eduCity: '',
         eduStart: '',
         eduEnd: '',
         degree: '',
         subject: '',
-    }
-    setState(tempState);  
+      }
+    }))
   }
-
-  // const handleDeleteEduBtnClick = () => {
-  //   setState(prevState => {
-  //     const state = {...prevState}
-  //     let x = 'edu' + state.other.numChildrenEdu;
-  //     console.log(x)
-  //     delete state[x];
-  //     if (state.other.numChildrenEdu > 0){
-  //       state.other.numChildrenEdu -= 0.5;
-  //     }
-  //     return state;
-  //   })
-  // } 
 
   const handleDeleteEduBtnClick = () => {
     const tempState = state;
@@ -181,9 +162,6 @@ function App() {
       </header>
 
       <Form 
-        // onPiChange = {handlePiChange}
-        // onExpChange = {handleExpChange} 
-        // onEduChange = {handleEduChange}
         onChange = {handleFormChange}
         onPhotoChange = {handlePhotoChange}
         onDescriptionChange = {handleDescriptionChange}

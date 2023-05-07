@@ -3,14 +3,16 @@ import ExtraJobPoints from "./extraJobPoints";
 
 function ExtraExperienceInput({ id, onChange, onDescriptionChange, onJobClick, data }) {
  const extraJobPoint = [];
-
- for (let i = 1; i <= data[id].descriptionChildren; i += 1) {
-    extraJobPoint.push(<
-     ExtraJobPoints
-        i={i}
-        onDescriptionChange={onDescriptionChange}
-    />)
+ if (data[id]?.descriptionChildren !== undefined){
+    for (let i = 1; i <= data[id]?.descriptionChildren; i += 1) {
+        extraJobPoint.push(<
+         ExtraJobPoints
+            i={i}
+            onDescriptionChange={onDescriptionChange}
+        />)
+     }
  }
+ 
 
  return (
     <form>
