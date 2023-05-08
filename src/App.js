@@ -64,16 +64,11 @@ function App() {
   };
   
   const handleDescriptionChange = (e) => { 
-    const x = e.target.parentNode.parentNode.parentNode.firstChild.id;
-    setState({
-      ...state,
-      [x]: {
-        ...state[x],
-        description: [
-          [e.target.className]= e.target.value
-        ]
-      }
-    })
+    const x = e.target.parentNode.parentNode.parentNode.firstChild.id; 
+    //x is 'experience', 'exp1'  or 'exp2' etc
+    const temp = {...state};
+    temp[x].description[e.target.className] = e.target.value; 
+    setState(temp)
   };
 
   const handleAddJobPointBtnClick = (e) => {
