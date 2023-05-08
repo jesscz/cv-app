@@ -113,15 +113,14 @@ function App() {
   };
 
   const handleDeleteExpBtnClick = () => {
-
-    const tempState = state;
-    let x = 'exp' + tempState.other.numChildrenExp;
-    delete tempState[x];
-    if (tempState.other.numChildrenExp > 0) {
-      tempState.other.numChildrenExp -= 1;
+    let x = 'exp' + state.other.numChildrenExp;
+    if (state.other.numChildrenExp > 0){
+      const temp = {...state};
+      temp.other.numChildrenExp--;
+      delete temp[x];
+      setState(temp);
     }
-    setState(tempState);
-  }
+  };
 
   const handleAddEduBtnClick = () => {
     setState(state => ({
@@ -143,17 +142,17 @@ function App() {
         subject: '',
       }
     }))
-  }
+  };
 
   const handleDeleteEduBtnClick = () => {
-    const tempState = state;
-    let x = 'edu' + tempState.other.numChildrenEdu;
-    delete tempState[x];
-    if (tempState.other.numChildrenEdu > 0){
-      tempState.other.numChildrenEdu -= 1;
+    let x = 'edu' + state.other.numChildrenEdu;
+    if (state.other.numChildrenEdu > 0){
+      const temp = {...state};
+      temp.other.numChildrenEdu--;
+      delete temp[x];
+      setState(temp);
     }
-    setState(tempState);
-  }
+  };
 
   return (
     <div className='main'>
