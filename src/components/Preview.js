@@ -4,10 +4,10 @@ import ExtraExperiencePreview from './extraExperiencePreview';
 import ExtraEducationPreview from './extraEducationPreview';
 
 
-function Preview({ data }) {
+export const Preview = React.forwardRef(({ data }, ref) => {
 
  const expChildren = [];
- for (let i = 1; i <= data.other.numChildrenExp; i += 1) {
+ for (let i = 1; i <= data?.other?.numChildrenExp; i += 1) {
     expChildren.push(<ExtraExperiencePreview
         i={i}
         data={data}
@@ -15,23 +15,24 @@ function Preview({ data }) {
  }
 
  const eduChildren = [];
- for (let i = 1; i <= data.other.numChildrenEdu; i += 1) {
+ for (let i = 1; i <= data?.other?.numChildrenEdu; i += 1) {
     eduChildren.push(<ExtraEducationPreview
         i={i}
         data={data}
     />)
  }
 
+//  const componentRef = useRef();
 
  return (
-    <div className='preview'>
+    <div ref={ref} className='preview'>
         <div className='previewPersonalInfo'>
-            <h1>{data.personalInfo.firstName} {data.personalInfo.lastName}</h1>
-            <img src={data.personalInfo.photoId} alt='user ID'/>
+            <h1>{data?.personalInfo?.firstName} {data?.personalInfo?.lastName}</h1>
+            <img src={data?.personalInfo?.photoId} alt='user ID'/>
             <p id='personalInfoL2'>
-                <span>{data.personalInfo.email}{' | '}</span>
-                <span>{data.personalInfo.phoneNumber}{' | '}</span>
-                <span>{data.personalInfo.address}</span>
+                <span>{data?.personalInfo?.email}{' | '}</span>
+                <span>{data?.personalInfo?.phoneNumber}{' | '}</span>
+                <span>{data?.personalInfo?.address}</span>
             </p>
         </div>
         <div>
@@ -39,12 +40,12 @@ function Preview({ data }) {
                 Experience
             </p>
             <div className='previewGroup'>
-                <p className='previewCompany'>{data.experience.company}</p>
-                <span>{data.experience.position}{' '}</span>
-                <span className='expCity'>{data.experience.expCity}{' '}</span>
-                <span>{'('}{data.experience.expStart}{' to '}</span>
-                <span>{data.experience.expEnd}{')'}</span>
-                <ul>{data.experience.description
+                <p className='previewCompany'>{data?.experience?.company}</p>
+                <span>{data?.experience?.position}{' '}</span>
+                <span className='expCity'>{data?.experience?.expCity}{' '}</span>
+                <span>{'('}{data?.experience?.expStart}{' to '}</span>
+                <span>{data?.experience?.expEnd}{')'}</span>
+                <ul>{data?.experience?.description
                     .filter((i) => {
                         return i !== '';
                     })
@@ -60,19 +61,17 @@ function Preview({ data }) {
                 Education
             </p>
             <div className='previewGroup'>
-                <span>{data.education.university}{', '}</span>
-                <span>{data.education.eduCity}{' '}</span>
-                <span>{'('}{data.education.eduStart}{' to '}</span>
-                <span>{data.education.eduEnd}{')'}</span>
+                <span>{data?.education?.university}{', '}</span>
+                <span>{data?.education?.eduCity}{' '}</span>
+                <span>{'('}{data?.education?.eduStart}{' to '}</span>
+                <span>{data?.education?.eduEnd}{')'}</span>
                 <p>
-                    <span>{data.education.degree}{' in '}</span>
-                    <span>{data.education.subject}</span>
+                    <span>{data?.education?.degree}{' in '}</span>
+                    <span>{data?.education?.subject}</span>
                 </p>
             </div>
             {eduChildren}
         </div>
     </div>
  );
-}
-
-export default Preview;
+})

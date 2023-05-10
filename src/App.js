@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import ReactToPrint from 'react-to-print';
 import './css/App.css';
 import Form from './components/Form';
-import Preview from './components/Preview';
+import { Preview } from './components/Preview';
 
 function App() {
 
@@ -64,8 +64,7 @@ function App() {
   };
   
   const handleDescriptionChange = (e) => { 
-    const x = e.target.parentNode.parentNode.parentNode.firstChild.id; 
-    //x is 'experience', 'exp1'  or 'exp2' etc
+    const x = e.target.parentNode.parentNode.parentNode.firstChild.id; //x is 'experience', 'exp1'  or 'exp2' etc
     const temp = {...state};
     temp[x].description[e.target.className] = e.target.value; 
     setState(temp)
@@ -149,6 +148,8 @@ function App() {
     }
   };
 
+  const componentRef = useRef();
+
   return (
     <div className='main'>
       <header>
@@ -166,16 +167,15 @@ function App() {
         onDeleteEdu = {handleDeleteEduBtnClick}
         data = {state}
       />
+
       <ReactToPrint
-        trigger={() => {
-          return <button id='submit'>Submit to printer</button>;
-        }}
-        // content={() => componentRef}
+        trigger={() => <button>Submit to Print</button>} 
+        content={() => componentRef.current}
       />
-        
+
       <Preview
+        ref={componentRef}
         data = {state}
-        // ref={el => (componentRef = el)}
       />
 
       <footer>
