@@ -169,7 +169,7 @@ function App() {
       />
 
       <ReactToPrint
-        trigger={() => <button>Submit to Print</button>} 
+        trigger={() => <button id='submit'>Submit to Print</button>} 
         content={() => componentRef.current}
       />
 
